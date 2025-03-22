@@ -1,0 +1,26 @@
+{
+  "questions": [
+    "Bonjour",
+    "Comment s'inscrire à l'ISET ?",
+    "Quels sont les programmes disponibles ?",
+    "Où se trouve l'ISET ?",
+    "Quelles sont les conditions d'admission ?",
+    "Quel est le coût des études ?",
+    "Quand commencent les cours ?",
+    "Comment contacter l'administration ?",
+    "Y a-t-il des bourses disponibles ?",
+    "Quels sont les débouchés ?"
+  ],
+  "responses": [
+    "Bonjour! Comment puis-je vous aider?",
+    "Pour s'inscrire à l'ISET, rendez-vous sur le portail d'inscription en ligne ou visitez le bureau des admissions.",
+    "L'ISET propose plusieurs programmes : Informatique, Électronique, Mécanique, etc. Consultez notre site pour plus de détails.",
+    "L'ISET est situé à [votre adresse]. Vous pouvez nous trouver facilement avec Google Maps.",
+    "Les conditions d'admission incluent un baccalauréat et un bon dossier scolaire. Consultez la section Admissions pour plus de détails.",
+    "Les frais de scolarité varient selon le programme. Contactez le service financier pour plus d'informations.",
+    "Les cours commencent généralement en septembre. Consultez le calendrier académique sur notre site.",
+    "Vous pouvez contacter l'administration par téléphone au [numéro] ou par email à [email].",
+    "Oui, plusieurs bourses sont disponibles. Visitez la section Aide Financière de notre site.",
+    "Nos diplômés travaillent dans divers secteurs : entreprises technologiques, industries, etc."
+  ]
+}

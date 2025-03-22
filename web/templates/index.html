@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assistant ISET</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="logo">
+          <img
+            src="{{ url_for('static', filename='../templates/iset.png') }}"
+            alt="ISET Logo"
+          />
+        </div>
+        <h1>Assistant Virtuel ISET</h1>
+      </header>
+
+      <div class="chat-container">
+        <div class="chat-messages" id="chat-messages">
+          <div class="message bot-message welcome-message">
+            <p>👋 Bonjour! Je suis l'assistant virtuel de l'ISET.</p>
+            <p>Comment puis-je vous aider aujourd'hui ?</p>
+            <div class="suggested-questions">
+              <button onclick="askQuestion('Comment s\'inscrire à l\'ISET ?')">
+                Comment s'inscrire ?
+              </button>
+              <button
+                onclick="askQuestion('Quels sont les programmes disponibles ?')"
+              >
+                Programmes disponibles
+              </button>
+              <button
+                onclick="askQuestion('Quelles sont les conditions d\'admission ?')"
+              >
+                Conditions d'admission
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="chat-input-container">
+          <input
+            type="text"
+            id="user-input"
+            placeholder="Tapez votre question ici..."
+            onkeypress="if(event.keyCode==13) sendMessage()"
+          />
+          <button onclick="sendMessage()" class="send-button">
+            <svg viewBox="0 0 24 24" width="24" height="24">
+              <path
+                fill="currentColor"
+                d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+  </body>
+</html>
