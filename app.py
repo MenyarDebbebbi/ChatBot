@@ -15,7 +15,7 @@ app.config.from_object(Config)
 
 # Initialisation des composants
 text_processor = TextProcessor()
-classifier = ChatbotClassifier()
+classifier = ChatbotClassifier(text_processor=text_processor)
 search_engine = SearchEngine()
 feedback_manager = FeedbackManager()
 
@@ -31,23 +31,27 @@ def chatbot():
 def chat():
     user_message = request.json.get('message', '')
     
-    # Validation de la question
-    is_valid, processed_text = text_processor.validate_question(user_message)
-    if not is_valid:
-        return jsonify({'response': "Je n'ai pas compris votre question. Pouvez-vous la reformuler ?"})
+    if not user_message:
+        return jsonify({
+            'response': "Je n'ai pas reçu de message. Pouvez-vous réessayer ?"
+        })
     
     try:
-        # Classification et génération de réponse
-        response, confidence = classifier.get_response(processed_text)
+        # Obtenir la réponse du classificateur
+        result = classifier.get_response(user_message)
         
         # Si la confiance est faible, utiliser le moteur de recherche
-        if confidence < Config.MIN_CONFIDENCE_SCORE:
-            search_results = search_engine.search(processed_text)
+        if result['confidence'] < Config.MIN_CONFIDENCE_SCORE:
+            search_results = search_engine.search(user_message)
             if search_results:
                 response = {
-                    'text': response,
+                    'text': result['response'],
                     'links': search_results
                 }
+            else:
+                response = result['response']
+        else:
+            response = result['response']
         
         return jsonify({'response': response})
         
@@ -73,11 +77,11 @@ def test_model():
     ]
     results = []
     for q in test_questions:
-        response, confidence = classifier.get_response(q)
+        result = classifier.get_response(q)
         results.append({
             'question': q,
-            'response': response,
-            'confidence': confidence
+            'response': result['response'],
+            'confidence': result['confidence']
         })
     return jsonify(results)
 
