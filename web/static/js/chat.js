@@ -79,3 +79,51 @@ document
       sendMessage();
     }
   });
+
+function switchLanguage(lang) {
+  // Stockez la langue sélectionnée
+  localStorage.setItem("preferred_language", lang);
+
+  // Rechargez la page pour appliquer le changement
+  location.reload();
+}
+
+// Ajoutez ceci au début du fichier
+document.addEventListener("DOMContentLoaded", function () {
+  const preferredLanguage = localStorage.getItem("preferred_language") || "fr";
+  // Vous pouvez utiliser cette valeur pour adapter l'interface
+
+  // Charger le thème sauvegardé
+  const savedTheme = localStorage.getItem("theme") || "light";
+  if (savedTheme === "dark") {
+    document.body.classList.add("dark-mode");
+    updateThemeButton();
+  }
+});
+
+function toggleTheme() {
+  const body = document.body;
+  const button = document.getElementById("theme-toggle");
+
+  body.classList.toggle("dark-mode");
+
+  // Sauvegarder la préférence
+  const isDarkMode = body.classList.contains("dark-mode");
+  localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+
+  updateThemeButton();
+}
+
+function updateThemeButton() {
+  const button = document.getElementById("theme-toggle");
+  const icon = button.querySelector("i");
+  const text = button.querySelector("span");
+
+  if (document.body.classList.contains("dark-mode")) {
+    icon.className = "fas fa-sun";
+    text.textContent = "Mode clair";
+  } else {
+    icon.className = "fas fa-moon";
+    text.textContent = "Mode sombre";
+  }
+}

@@ -3,69 +3,131 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Assistant ISET</title>
+    <title>ISET Sfax - Institut Supérieur des Études Technologiques</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+      rel="icon"
+      href="{{ url_for('static', filename='images/iset.png') }}"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='css/style.css') }}"
     />
   </head>
   <body>
-    <div class="container">
-      <header class="header">
-        <div class="logo">
-          <img
-            src="{{ url_for('static', filename='../templates/iset.png') }}"
-            alt="ISET Logo"
-          />
-        </div>
-        <h1>Assistant Virtuel ISET</h1>
-      </header>
+    {% include 'components/header.html' %}
 
-      <div class="chat-container">
-        <div class="chat-messages" id="chat-messages">
-          <div class="message bot-message welcome-message">
-            <p>👋 Bonjour! Je suis l'assistant virtuel de l'ISET.</p>
-            <p>Comment puis-je vous aider aujourd'hui ?</p>
-            <div class="suggested-questions">
-              <button onclick="askQuestion('Comment s\'inscrire à l\'ISET ?')">
-                Comment s'inscrire ?
-              </button>
-              <button
-                onclick="askQuestion('Quels sont les programmes disponibles ?')"
-              >
-                Programmes disponibles
-              </button>
-              <button
-                onclick="askQuestion('Quelles sont les conditions d\'admission ?')"
-              >
-                Conditions d'admission
-              </button>
+    <main>
+      <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content" data-aos="fade-up">
+          <h1>Bienvenue à l'ISET de Sfax</h1>
+          <p>
+            Formez-vous aux métiers de demain avec notre institut d'excellence
+          </p>
+          <div class="hero-buttons">
+            <a href="/chatbot" class="btn btn-primary">
+              <i class="fas fa-robot"></i> Assistant Virtuel
+            </a>
+            <a
+              href="https://isetsf.rnu.tn/fr"
+              class="btn btn-secondary"
+              target="_blank"
+            >
+              <i class="fas fa-globe"></i> Site Officiel
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="features-section">
+        <div class="container">
+          <div class="section-title">
+            <h2>Pourquoi Choisir l'ISET Sfax ?</h2>
+            <p>
+              Découvrez les avantages qui font de notre institut un choix
+              d'excellence pour votre formation
+            </p>
+          </div>
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <h3>Formation de Qualité</h3>
+              <p>
+                Des programmes académiques reconnus et adaptés aux besoins du
+                marché du travail
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <h3>Équipe Expérimentée</h3>
+              <p>
+                Des enseignants qualifiés et des professionnels du secteur pour
+                vous accompagner
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-laptop-code"></i>
+              </div>
+              <h3>Technologies Modernes</h3>
+              <p>
+                Des équipements et des laboratoires à la pointe de la
+                technologie
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-handshake"></i>
+              </div>
+              <h3>Partenariats Industriels</h3>
+              <p>
+                Des collaborations étroites avec les entreprises pour faciliter
+                votre insertion professionnelle
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-globe"></i>
+              </div>
+              <h3>Rayonnement International</h3>
+              <p>Des opportunités d'échanges et de stages à l'international</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-robot"></i>
+              </div>
+              <h3>Assistant Virtuel</h3>
+              <p>
+                Un chatbot intelligent disponible 24/7 pour répondre à vos
+                questions
+              </p>
             </div>
           </div>
         </div>
+      </section>
+    </main>
 
-        <div class="chat-input-container">
-          <input
-            type="text"
-            id="user-input"
-            placeholder="Tapez votre question ici..."
-            onkeypress="if(event.keyCode==13) sendMessage()"
-          />
-          <button onclick="sendMessage()" class="send-button">
-            <svg viewBox="0 0 24 24" width="24" height="24">
-              <path
-                fill="currentColor"
-                d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
-              ></path>
-            </svg>
-          </button>
-        </div>
-      </div>
-    </div>
-    <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+    {% include 'components/footer.html' %}
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 800,
+        once: true,
+      });
+    </script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
   </body>
 </html>
