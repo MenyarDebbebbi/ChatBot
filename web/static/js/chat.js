@@ -127,3 +127,70 @@ function updateThemeButton() {
     text.textContent = "Mode sombre";
   }
 }
+
+let recognition;
+let isListening = false;
+
+function initSpeechRecognition() {
+  if ("webkitSpeechRecognition" in window) {
+    recognition = new webkitSpeechRecognition();
+    recognition.continuous = false;
+    recognition.interimResults = false;
+    recognition.lang = "fr-FR";
+
+    recognition.onresult = function (event) {
+      const transcript = event.results[0][0].transcript;
+      document.getElementById("user-input").value = transcript;
+      stopVoiceInput();
+      sendMessage();
+    };
+
+    recognition.onerror = function (event) {
+      console.error("Erreur de reconnaissance vocale:", event.error);
+      stopVoiceInput();
+    };
+
+    recognition.onend = function () {
+      stopVoiceInput();
+    };
+  } else {
+    console.error(
+      "La reconnaissance vocale n'est pas supportée par ce navigateur."
+    );
+    document.getElementById("voice-button").style.display = "none";
+  }
+}
+
+function toggleVoiceInput() {
+  if (!recognition) {
+    initSpeechRecognition();
+  }
+
+  if (isListening) {
+    stopVoiceInput();
+  } else {
+    startVoiceInput();
+  }
+}
+
+function startVoiceInput() {
+  if (recognition) {
+    recognition.start();
+    isListening = true;
+    document.getElementById("voice-button").classList.add("active");
+    document.getElementById("user-input").placeholder = "Parlez maintenant...";
+  }
+}
+
+function stopVoiceInput() {
+  if (recognition) {
+    recognition.stop();
+    isListening = false;
+    document.getElementById("voice-button").classList.remove("active");
+    document.getElementById("user-input").placeholder =
+      "Tapez votre question ici...";
+  }
+}
+
+// Initialize speech recognition when the page loads
+document.addEventListener("DOMContentLoaded", initSpeechRecognition);

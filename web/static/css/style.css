@@ -188,34 +188,46 @@ body {
   color: #94a3b8;
 }
 
+.voice-button,
 .send-button {
-  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-  color: white;
+  background: none;
   border: none;
-  width: 60px;
-  height: 60px;
-  border-radius: 30px;
+  padding: 12px;
   cursor: pointer;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.2);
+  color: #64748b;
 }
 
+.voice-button {
+  margin-right: 8px;
+}
+
+.voice-button:hover,
 .send-button:hover {
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 8px 12px -2px rgba(59, 130, 246, 0.3);
+  background: #f1f5f9;
+  color: #3b82f6;
 }
 
-.send-button svg {
-  width: 28px;
-  height: 28px;
-  transition: transform 0.3s ease;
+.voice-button.active {
+  background: #3b82f6;
+  color: white;
+  animation: pulse 1.5s infinite;
 }
 
-.send-button:hover svg {
-  transform: translateX(3px);
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+  }
 }
 
 /* Scrollbar personnalisé */
