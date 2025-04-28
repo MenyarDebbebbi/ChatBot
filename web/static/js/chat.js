@@ -43,6 +43,28 @@ function addMessage(type, message) {
     messageDiv.textContent = message;
   } else if (message.text) {
     messageDiv.textContent = message.text;
+
+    // Gérer l'affichage des images si présentes
+    if (message.image) {
+      const imgContainer = document.createElement("div");
+      imgContainer.className = "message-image-container";
+
+      const img = document.createElement("img");
+      img.src = message.image;
+      img.alt = "Attestation";
+      img.className = "message-image";
+
+      // Ajouter un bouton de téléchargement
+      const downloadBtn = document.createElement("a");
+      downloadBtn.href = message.image;
+      downloadBtn.download = "attestation.jpg";
+      downloadBtn.className = "download-button";
+      downloadBtn.innerHTML = '<i class="fas fa-download"></i> Télécharger';
+
+      imgContainer.appendChild(img);
+      imgContainer.appendChild(downloadBtn);
+      messageDiv.appendChild(imgContainer);
+    }
   }
 
   messagesDiv.appendChild(messageDiv);

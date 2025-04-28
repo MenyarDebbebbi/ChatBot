@@ -265,5 +265,169 @@
     "Je ne trouve pas de réponse exacte à votre question. Voici ce que vous pouvez faire :\n1. Reformulez votre question différemment\n2. Posez une question plus générale sur le sujet\n3. Choisissez parmi ces sujets courants :\n- Inscription et admission\n- Formations et cours\n- Stages et diplômes\n- Contact et localisation",
     "Désolé, je ne peux pas répondre précisément à cette question. Pour vous aider, voici les sujets sur lesquels je peux vous renseigner :\n- Inscription et admission à l'ISET\n- Programmes et formations disponibles\n- Stages et attestations\n- Informations pratiques (contact, adresse)\n\nQuel sujet vous intéresse ?",
     "I don't have a specific answer to this question. Here are the main topics I can help you with:\n- Registration and admission\n- Available programs and courses\n- Internships and certificates\n- Contact information\n\nWhich topic interests you?"
-  ]
+  ],
+  "stages": {
+    "questions": [
+      "Comment faire une demande de stage?",
+      "Je veux faire un stage à l'ISET",
+      "Quelles sont les conditions pour faire un stage?",
+      "Est-ce que je peux avoir une attestation de stage?",
+      "Quelle est la durée du stage?",
+      "Les stages sont-ils obligatoires?",
+      "Y a-t-il des stages d'été?",
+      "Comment trouver un stage?",
+      "Quand commence le stage?",
+      "Qui peut m'aider pour le stage?",
+      "Je cherche un stage en informatique",
+      "Donnez-moi des informations sur les stages",
+      "Procédure de stage",
+      "Stage en entreprise comment faire",
+      "Je veux une convention de stage"
+    ],
+    "responses": {
+      "default": {
+        "text": "Pour les stages à l'ISET, voici les informations importantes :",
+        "steps": [
+          "1. Choisir une entreprise d'accueil",
+          "2. Remplir la fiche de stage",
+          "3. Faire signer la convention de stage",
+          "4. Suivre le stage pendant la période définie",
+          "5. Rédiger le rapport de stage"
+        ]
+      },
+      "attestation": {
+        "text": "Voici votre attestation de stage :",
+        "image": "/static/images/attestations/attestation_stage.jpg"
+      },
+      "duree": "La durée du stage est généralement de 4 à 6 mois selon la formation.",
+      "periode": "Les stages se déroulent principalement entre février et juillet."
+    }
+  },
+  "attestations": {
+    "questions": [
+      "Je veux une attestation",
+      "Comment obtenir une attestation?",
+      "Attestation de travail svp",
+      "Donnez-moi une attestation de stage",
+      "Je voudrais une attestation de réussite",
+      "Où trouver mon attestation?",
+      "Attestation de scolarité",
+      "Comment télécharger mon attestation?",
+      "J'ai besoin d'une attestation urgente",
+      "Attestation en anglais possible?",
+      "Procédure pour avoir une attestation",
+      "Délai pour obtenir une attestation"
+    ],
+    "responses": {
+      "travail": {
+        "text": "Voici votre attestation de travail :",
+        "image": "/static/images/attestations/attestation_travail.jpg"
+      },
+      "stage": {
+        "text": "Voici votre attestation de stage :",
+        "image": "/static/images/attestations/attestation_stage.jpg"
+      },
+      "scolarite": {
+        "text": "Voici votre attestation de scolarité :",
+        "image": "/static/images/attestations/attestation_scolarite.jpg"
+      }
+    }
+  },
+  "inscription": {
+    "questions": [
+      "Comment s'inscrire à l'ISET?",
+      "Je veux m'inscrire",
+      "Quels sont les documents nécessaires pour l'inscription?",
+      "Date limite d'inscription",
+      "Inscription en ligne possible?",
+      "Frais d'inscription",
+      "Procédure d'inscription pour les étudiants étrangers",
+      "Quand commencent les inscriptions?",
+      "Comment faire une préinscription?",
+      "Documents requis pour l'inscription",
+      "Je veux faire une inscription tardive",
+      "Inscription aux examens",
+      "Renouvellement d'inscription"
+    ],
+    "responses": {
+      "default": {
+        "text": "Pour s'inscrire à l'ISET, voici la procédure à suivre :",
+        "steps": [
+          "1. Créer un compte sur www.inscription.iset.tn",
+          "2. Remplir le formulaire de préinscription",
+          "3. Télécharger et imprimer le dossier",
+          "4. Joindre les documents requis",
+          "5. Déposer le dossier complet au bureau des inscriptions"
+        ]
+      },
+      "documents": [
+        "Baccalauréat ou équivalent",
+        "Carte d'identité",
+        "Photos d'identité",
+        "Fiche de préinscription",
+        "Justificatif de paiement"
+      ],
+      "dates": "Les inscriptions commencent généralement en juillet et se terminent en septembre."
+    }
+  },
+  "formations": {
+    "questions": [
+      "Quelles sont les formations disponibles?",
+      "Je veux des informations sur les filières",
+      "Quelles spécialités proposez-vous?",
+      "Durée des formations",
+      "Formation en alternance possible?",
+      "Contenu des cours",
+      "Quels diplômes proposez-vous?",
+      "Les débouchés après la formation",
+      "Formation continue disponible?",
+      "Niveau requis pour la formation",
+      "Formation à distance possible?",
+      "Coût de la formation",
+      "Emploi du temps des formations"
+    ],
+    "responses": {
+      "default": {
+        "text": "L'ISET propose plusieurs formations :",
+        "filieres": [
+          "Génie Électrique",
+          "Génie Mécanique",
+          "Informatique",
+          "Gestion des Entreprises",
+          "Commerce International"
+        ]
+      },
+      "duree": "La durée des formations est de 3 ans (Licence) ou 2 ans (Master).",
+      "modalites": "Les cours sont dispensés en présentiel avec possibilité de stages en entreprise."
+    }
+  },
+  "examens": {
+    "questions": [
+      "Quand sont les examens?",
+      "Dates des examens",
+      "Comment se préparer aux examens?",
+      "Résultats des examens",
+      "Rattrapage possible?",
+      "Notes des examens",
+      "Programme des examens",
+      "Absence aux examens",
+      "Consultation des copies",
+      "Recours pour les examens",
+      "Examens de rattrapage",
+      "Conditions de réussite aux examens"
+    ],
+    "responses": {
+      "default": {
+        "text": "Informations importantes concernant les examens :",
+        "points": [
+          "Les examens ont lieu en janvier et en mai",
+          "Une session de rattrapage est organisée en juin",
+          "Les résultats sont publiés sur le site web",
+          "Un délai de 48h est accordé pour les recours"
+        ]
+      },
+      "dates": "Le calendrier des examens est publié un mois avant les épreuves.",
+      "resultats": "Les résultats sont disponibles sur votre espace étudiant."
+    }
+  }
 }
