@@ -6,9 +6,26 @@ from .nlp_processor import NLPProcessor
 class ResponseGenerator:
     def __init__(self, training_data_file='data/training_data.json'):
         self.nlp = NLPProcessor(training_data_file)
+        self.load_responses()
         
+    def load_responses(self):
+        """Charge les réponses depuis le fichier responses.json"""
+        try:
+            with open('data/responses.json', 'r', encoding='utf-8') as f:
+                self.responses = json.load(f)
+        except Exception as e:
+            print(f"Erreur lors du chargement des réponses: {e}")
+            self.responses = {}
+
     def generate_response(self, user_input):
         """Génère une réponse basée sur l'entrée utilisateur."""
+        # Détecter si c'est une demande d'attestation
+        if "attestation" in user_input.lower():
+            if "travail" in user_input.lower():
+                return self.responses["attestation"]["travail"]
+            elif "stage" in user_input.lower():
+                return self.responses["attestation"]["stage"]
+        
         # Détection de la catégorie et de l'intention
         category, matched_question, confidence = self.nlp.detect_category_and_intent(user_input)
         
@@ -26,13 +43,25 @@ class ResponseGenerator:
         sentiment = self.nlp.analyze_sentiment(user_input)
         
         # Obtention de la réponse appropriée
-        response = self.nlp.get_response_for_category(category, entities)
+        if category == "attestation":
+            for nom in entities.get("noms", []):
+                if "travail" in nom:
+                    return self.responses["attestation"]["travail"]
+                elif "stage" in nom:
+                    return self.responses["attestation"]["stage"]
         
-        # Si aucune réponse spécifique n'est trouvée
-        if not response:
-            return {
+        # Pour les autres catégories
+        if category in self.responses:
+            if isinstance(self.responses[category], list):
+                response = self.responses[category][0]
+            elif isinstance(self.responses[category], dict):
+                response = self.responses[category].get("default", {"text": "Je n'ai pas trouvé de réponse spécifique."})
+            else:
+                response = {"text": self.responses[category]}
+        else:
+            response = {
                 "text": "Je n'ai pas trouvé de réponse spécifique. Voici les informations générales sur ce sujet :",
-                "category": category
+                "suggestions": ["Stages", "Attestations", "Inscription", "Formations"]
             }
         
         # Ajout de suggestions pertinentes selon la catégorie
@@ -66,10 +95,15 @@ class ResponseGenerator:
         else:
             greeting = "Bonsoir! "
             
-        response = self.nlp.get_response_for_category(category)
+        # Obtenir la réponse de base
+        response = self.generate_response(category)
+        
+        # Ajouter le message de salutation
         if isinstance(response, dict) and "text" in response:
             response["text"] = greeting + response["text"]
-            
+        elif isinstance(response, str):
+            response = {"text": greeting + response}
+        
         return response
     
     def add_training_data(self, category, question, response):

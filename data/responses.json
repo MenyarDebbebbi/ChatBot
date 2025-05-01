@@ -7,11 +7,11 @@
   "attestation": {
     "travail": {
       "text": "Voici votre attestation de travail :",
-      "image": "/static/images/attestations/attestation_travail.jpg"
+      "image": "/static/images/attestations/travail.jpg"
     },
     "stage": {
       "text": "Voici votre attestation de stage :",
-      "image": "/static/images/attestations/attestation_stage.jpg"
+      "image": "/static/images/attestations/stage.jpg"
     }
   },
   "inscription": [

@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./data:/app/data
+      - ./web/static/images:/app/web/static/images
+      - ./logs:/app/logs
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_ENV=production
+    restart: unless-stopped
+
+  test:
+    build: .
+    command: python -m unittest discover tests
+    volumes:
+      - .:/app
+    depends_on:
+      - web

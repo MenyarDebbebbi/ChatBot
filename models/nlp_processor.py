@@ -2,7 +2,6 @@ import nltk
 from nltk.tokenize import word_tokenize, sent_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
-from nltk.tag import pos_tag
 import string
 import re
 import json
@@ -11,13 +10,20 @@ from difflib import SequenceMatcher
 class NLPProcessor:
     def __init__(self, training_data_file='data/training_data.json'):
         # Télécharger les ressources NLTK nécessaires
-        nltk.download('punkt')
-        nltk.download('stopwords')
-        nltk.download('wordnet')
-        nltk.download('averaged_perceptron_tagger')
+        resources = ['punkt', 'stopwords', 'wordnet']
+        for resource in resources:
+            try:
+                nltk.download(resource, quiet=True)
+            except Exception as e:
+                print(f"Attention: Impossible de télécharger {resource}: {str(e)}")
         
         self.lemmatizer = WordNetLemmatizer()
-        self.stop_words = set(stopwords.words('french'))
+        try:
+            self.stop_words = set(stopwords.words('french'))
+        except:
+            print("Attention: Stopwords français non disponibles, utilisation d'une liste par défaut")
+            self.stop_words = {'le', 'la', 'les', 'de', 'des', 'du', 'un', 'une', 'et', 'est', 'en', 'que', 'qui', 'dans'}
+        
         self.load_training_data(training_data_file)
         
     def load_training_data(self, file_path):
@@ -41,11 +47,11 @@ class NLPProcessor:
         # Tokenization
         tokens = word_tokenize(text)
         
-        # Suppression des stop words et lemmatization
-        tokens = [self.lemmatizer.lemmatize(token) for token in tokens 
+        # Suppression des stop words
+        tokens = [token for token in tokens 
                  if token not in self.stop_words and token not in string.punctuation]
         
-        return tokens
+        return ' '.join(tokens)
     
     def calculate_similarity(self, text1, text2):
         """Calcule la similarité entre deux textes."""
@@ -56,8 +62,11 @@ class NLPProcessor:
         best_match = None
         best_score = 0
         
+        processed_input = self.preprocess_text(user_input)
+        
         for question in questions:
-            score = self.calculate_similarity(user_input, question)
+            processed_question = self.preprocess_text(question)
+            score = self.calculate_similarity(processed_input, processed_question)
             if score > best_score:
                 best_score = score
                 best_match = question
@@ -85,23 +94,28 @@ class NLPProcessor:
         return best_category, best_match, best_score
     
     def extract_entities(self, text):
-        """Extrait les entités nommées du texte."""
-        tokens = word_tokenize(text)
-        tagged = pos_tag(tokens)
+        """Extrait les entités du texte de manière simplifiée."""
+        tokens = word_tokenize(text.lower())
+        
+        # Définition des patterns pour la reconnaissance d'entités
+        patterns = {
+            'noms': ['attestation', 'stage', 'travail', 'formation', 'cours', 'examen'],
+            'verbes': ['vouloir', 'faire', 'obtenir', 'demander', 'passer'],
+            'adjectifs': ['disponible', 'possible', 'urgent', 'important']
+        }
+        
         entities = {
             'noms': [],
             'verbes': [],
             'adjectifs': []
         }
         
-        for word, tag in tagged:
-            if tag.startswith('N'):  # Noms
-                entities['noms'].append(word)
-            elif tag.startswith('V'):  # Verbes
-                entities['verbes'].append(word)
-            elif tag.startswith('J'):  # Adjectifs
-                entities['adjectifs'].append(word)
-                
+        # Classification simple basée sur les patterns
+        for token in tokens:
+            for category, words in patterns.items():
+                if token in words:
+                    entities[category].append(token)
+        
         return entities
     
     def analyze_sentiment(self, text):
@@ -110,7 +124,7 @@ class NLPProcessor:
         positive_words = {'merci', 'bien', 'super', 'excellent', 'parfait', 'content'}
         negative_words = {'mauvais', 'problème', 'erreur', 'difficile', 'impossible', 'nul'}
         
-        tokens = self.preprocess_text(text)
+        tokens = word_tokenize(text.lower())
         
         # Calcul du score de sentiment
         score = 0
@@ -120,13 +134,7 @@ class NLPProcessor:
             elif token in negative_words:
                 score -= 1
                 
-        # Détermination du sentiment
-        if score > 0:
-            return 'positif'
-        elif score < 0:
-            return 'négatif'
-        else:
-            return 'neutre'
+        return score
     
     def get_response_for_category(self, category, entities=None):
         """Obtient la réponse appropriée pour une catégorie donnée."""
@@ -138,12 +146,10 @@ class NLPProcessor:
         # Gestion spéciale pour les attestations
         if category == 'attestations' and entities:
             for nom in entities.get('noms', []):
-                if 'travail' in nom.lower():
-                    return category_data['responses']['travail']
-                elif 'stage' in nom.lower():
-                    return category_data['responses']['stage']
-                elif 'scolarite' in nom.lower():
-                    return category_data['responses']['scolarite']
+                if 'travail' in nom:
+                    return category_data['responses'].get('travail')
+                elif 'stage' in nom:
+                    return category_data['responses'].get('stage')
         
         # Retourne la réponse par défaut de la catégorie
         return category_data['responses'].get('default')

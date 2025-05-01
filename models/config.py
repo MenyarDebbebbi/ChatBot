@@ -4,6 +4,7 @@ class ModelConfig:
         'language': 'french',
         'min_word_length': 3,
         'max_keywords': 5,
+        'similarity_threshold': 0.4,
         'sentiment_threshold': 0.5
     }
     
@@ -11,33 +12,35 @@ class ModelConfig:
     PATHS = {
         'attestations': 'web/static/images/attestations/',
         'responses': 'data/responses.json',
+        'training': 'data/training_data.json',
         'models': 'models/trained/',
         'logs': 'logs/'
     }
     
     # Configuration des types de réponses
-    RESPONSE_TYPES = {
-        'text': True,
-        'image': True,
-        'suggestions': True,
-        'links': True
-    }
+    RESPONSE_TYPES = [
+        'text',
+        'image',
+        'suggestions',
+        'steps',
+        'links'
+    ]
     
     # Types d'attestations supportés
     ATTESTATION_TYPES = {
         'travail': {
-            'extensions': ['.jpg', '.pdf'],
+            'extension': '.jpg',
             'required_fields': ['nom', 'date', 'poste']
         },
         'stage': {
-            'extensions': ['.jpg', '.pdf'],
-            'required_fields': ['nom', 'date', 'durée']
+            'extension': '.jpg',
+            'required_fields': ['nom', 'date', 'entreprise']
         }
     }
     
     # Configuration des intentions
     INTENT_CONFIG = {
-        'threshold': 0.7,
+        'threshold': 0.4,
         'default_intent': 'autre',
         'supported_intents': [
             'salutation',
@@ -51,32 +54,45 @@ class ModelConfig:
     }
     
     # Configuration des entités
-    ENTITY_CONFIG = {
-        'extract_names': True,
-        'extract_dates': True,
-        'extract_locations': True,
-        'supported_entities': [
-            'noms',
-            'verbes',
-            'adjectifs',
-            'dates',
-            'lieux'
+    ENTITY_TYPES = [
+        'noms',
+        'verbes',
+        'adjectifs'
+    ]
+    
+    SUPPORTED_ENTITIES = {
+        'noms': [
+            'attestation',
+            'stage',
+            'travail',
+            'formation',
+            'cours',
+            'examen'
+        ],
+        'verbes': [
+            'vouloir',
+            'faire',
+            'obtenir',
+            'demander',
+            'passer'
+        ],
+        'adjectifs': [
+            'disponible',
+            'possible',
+            'urgent',
+            'important'
         ]
     }
     
     # Messages d'erreur
     ERROR_MESSAGES = {
-        'file_not_found': "Le fichier demandé n'a pas été trouvé.",
-        'invalid_format': "Format de fichier non supporté.",
-        'missing_fields': "Certains champs requis sont manquants.",
-        'processing_error': "Une erreur est survenue lors du traitement.",
-        'unknown_type': "Type d'attestation non reconnu."
+        'not_found': "Désolé, je n'ai pas trouvé l'information demandée.",
+        'invalid_request': "Je ne comprends pas votre demande. Pourriez-vous la reformuler ?",
+        'processing_error': "Une erreur est survenue lors du traitement de votre demande.",
+        'missing_data': "Des informations sont manquantes pour traiter votre demande."
     }
     
     # Configuration de journalisation
-    LOGGING_CONFIG = {
-        'enabled': True,
-        'level': 'INFO',
-        'format': '%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-        'file': 'chatbot.log'
-    } 
+    ENABLE_LOGGING = True
+    LOG_LEVEL = 'INFO'
+    LOG_FILE = 'chatbot.log' 
