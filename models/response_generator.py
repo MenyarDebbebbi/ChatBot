@@ -19,12 +19,26 @@ class ResponseGenerator:
 
     def generate_response(self, user_input):
         """Génère une réponse basée sur l'entrée utilisateur."""
+        user_input_lower = user_input.lower()
+        
         # Détecter si c'est une demande d'attestation
-        if "attestation" in user_input.lower():
-            if "travail" in user_input.lower():
+        if "attestation" in user_input_lower:
+            if "travail" in user_input_lower:
                 return self.responses["attestation"]["travail"]
-            elif "stage" in user_input.lower():
+            elif "stage" in user_input_lower:
                 return self.responses["attestation"]["stage"]
+        
+        # Détecter si c'est une demande sur les programmes
+        if any(word in user_input_lower for word in ["programme", "formation", "étude", "spécialité"]):
+            if "programmes" in self.responses:
+                response = self.responses["programmes"]["default"].copy()
+                # Formater la réponse pour inclure les détails des programmes
+                programmes_text = []
+                for prog in response["programmes"]:
+                    prog_text = f"\n- {prog['nom']} : {prog['description']} (Durée : {prog['durée']})"
+                    programmes_text.append(prog_text)
+                response["text"] = response["text"] + "".join(programmes_text)
+                return response
         
         # Détection de la catégorie et de l'intention
         category, matched_question, confidence = self.nlp.detect_category_and_intent(user_input)
@@ -41,14 +55,6 @@ class ResponseGenerator:
         
         # Analyse du sentiment pour adapter la réponse
         sentiment = self.nlp.analyze_sentiment(user_input)
-        
-        # Obtention de la réponse appropriée
-        if category == "attestation":
-            for nom in entities.get("noms", []):
-                if "travail" in nom:
-                    return self.responses["attestation"]["travail"]
-                elif "stage" in nom:
-                    return self.responses["attestation"]["stage"]
         
         # Pour les autres catégories
         if category in self.responses:
@@ -76,6 +82,12 @@ class ResponseGenerator:
                 "Attestation de travail",
                 "Attestation de stage",
                 "Attestation de scolarité"
+            ]
+        elif category == "programmes" or category == "formations":
+            response["suggestions"] = [
+                "Comment s'inscrire à un programme ?",
+                "Quelles sont les conditions d'admission ?",
+                "Quels sont les débouchés ?"
             ]
         
         return response

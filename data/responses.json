@@ -4,6 +4,38 @@
     "Salut! Je suis l'assistant virtuel de l'ISET. Que puis-je faire pour vous?",
     "Bienvenue! Je suis là pour répondre à vos questions."
   ],
+  "programmes": {
+    "default": {
+      "text": "L'ISET propose plusieurs programmes de formation :",
+      "programmes": [
+        {
+          "nom": "Génie Électrique",
+          "description": "Formation en électronique, automatisme et systèmes embarqués",
+          "durée": "3 ans"
+        },
+        {
+          "nom": "Génie Mécanique",
+          "description": "Formation en conception mécanique et production industrielle",
+          "durée": "3 ans"
+        },
+        {
+          "nom": "Informatique",
+          "description": "Formation en développement logiciel et réseaux",
+          "durée": "3 ans"
+        },
+        {
+          "nom": "Gestion des Entreprises",
+          "description": "Formation en management et administration",
+          "durée": "3 ans"
+        }
+      ],
+      "suggestions": [
+        "Comment s'inscrire à un programme ?",
+        "Quelles sont les conditions d'admission ?",
+        "Quels sont les débouchés ?"
+      ]
+    }
+  },
   "attestation": {
     "travail": {
       "text": "Voici votre attestation de travail :",

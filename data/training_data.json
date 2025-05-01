@@ -429,5 +429,94 @@
       "dates": "Le calendrier des examens est publié un mois avant les épreuves.",
       "resultats": "Les résultats sont disponibles sur votre espace étudiant."
     }
+  },
+  "salutation": {
+    "questions": ["bonjour", "salut", "bonsoir", "hello"],
+    "responses": [
+      "Bonjour! Comment puis-je vous aider aujourd'hui?",
+      "Salut! Je suis l'assistant virtuel de l'ISET. Que puis-je faire pour vous?",
+      "Bienvenue! Je suis là pour répondre à vos questions."
+    ]
+  },
+  "programmes": {
+    "questions": [
+      "Quels sont les programmes disponibles?",
+      "Quelles formations proposez-vous?",
+      "Quelles sont les spécialités?",
+      "Quels sont les domaines d'études?",
+      "Quelles sont les filières disponibles?",
+      "Je veux connaître les programmes",
+      "Parlez-moi des formations",
+      "Quelles études peut-on faire?",
+      "Quels sont les cursus proposés?",
+      "Quelles sont les options d'études?"
+    ],
+    "responses": {
+      "text": "L'ISET propose plusieurs programmes de formation :",
+      "programmes": [
+        {
+          "nom": "Génie Électrique",
+          "description": "Formation en électronique, automatisme et systèmes embarqués",
+          "durée": "3 ans"
+        },
+        {
+          "nom": "Génie Mécanique",
+          "description": "Formation en conception mécanique et production industrielle",
+          "durée": "3 ans"
+        },
+        {
+          "nom": "Informatique",
+          "description": "Formation en développement logiciel et réseaux",
+          "durée": "3 ans"
+        },
+        {
+          "nom": "Gestion des Entreprises",
+          "description": "Formation en management et administration",
+          "durée": "3 ans"
+        }
+      ],
+      "suggestions": [
+        "Comment s'inscrire à un programme ?",
+        "Quelles sont les conditions d'admission ?",
+        "Quels sont les débouchés ?"
+      ]
+    }
+  },
+  "attestation": {
+    "questions": [
+      "Je voudrais une attestation",
+      "Comment obtenir une attestation",
+      "Attestation de stage",
+      "Attestation de travail",
+      "Je veux mon attestation"
+    ],
+    "responses": {
+      "travail": {
+        "text": "Voici votre attestation de travail :",
+        "image": "/static/images/attestations/travail.jpg"
+      },
+      "stage": {
+        "text": "Voici votre attestation de stage :",
+        "image": "/static/images/attestations/stage.jpg"
+      }
+    }
+  },
+  "inscription": {
+    "questions": [
+      "Comment s'inscrire",
+      "Je veux m'inscrire",
+      "Procédure d'inscription",
+      "Étapes pour s'inscrire",
+      "Comment faire pour s'inscrire"
+    ],
+    "responses": {
+      "text": "Pour s'inscrire à l'ISET, voici les étapes à suivre :",
+      "steps": [
+        "1. Créer un compte sur la plateforme",
+        "2. Remplir le formulaire de candidature",
+        "3. Télécharger les documents requis",
+        "4. Soumettre votre dossier"
+      ]
+    }
   }
 }
