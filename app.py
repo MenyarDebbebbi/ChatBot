@@ -3,6 +3,7 @@ from models.response_generator import ResponseGenerator
 from models.nlp_processor import NLPProcessor
 from config import Config
 import os
+from datetime import datetime
 
 app = Flask(__name__, 
     template_folder='web/templates',
@@ -74,6 +75,33 @@ def test_model():
             'confidence': result['confidence']
         })
     return jsonify(results)
+
+@app.route('/health')
+def health_check():
+    """Endpoint pour vérifier l'état de l'application"""
+    try:
+        # Vérifier l'accès aux fichiers essentiels
+        required_files = [
+            'data/responses.json',
+            'data/training_data.json'
+        ]
+        for file in required_files:
+            if not os.path.exists(file):
+                raise FileNotFoundError(f"Fichier manquant: {file}")
+
+        # Vérifier l'accès à la base de données ou autres services si nécessaire
+        
+        return jsonify({
+            'status': 'healthy',
+            'timestamp': datetime.now().isoformat(),
+            'version': '1.0.0'
+        }), 200
+    except Exception as e:
+        return jsonify({
+            'status': 'unhealthy',
+            'error': str(e),
+            'timestamp': datetime.now().isoformat()
+        }), 500
 
 if __name__ == '__main__':
     app.run(debug=True) 
