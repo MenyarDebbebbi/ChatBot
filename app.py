@@ -25,31 +25,25 @@ def chatbot():
 
 @app.route('/chat', methods=['POST'])
 def chat():
-    user_message = request.json.get('message', '')
-    
-    if not user_message:
-        return jsonify({
-            'response': {
-                'text': "Je n'ai pas reçu de message. Pouvez-vous réessayer ?"
-            }
-        })
-    
     try:
+        data = request.get_json()
+        if not data:
+            return jsonify({'response': 'Aucun message reçu'})
+            
+        user_message = data.get('message', '').strip()
+        if not user_message:
+            return jsonify({'response': 'Veuillez entrer un message'})
+
         # Générer la réponse
         response = response_generator.generate_response(user_message)
         
-        # Si la réponse est une chaîne simple, la convertir en dictionnaire
-        if isinstance(response, str):
-            response = {'text': response}
-            
+        # La réponse est déjà formatée correctement, pas besoin de formatage HTML
         return jsonify({'response': response})
-        
+    
     except Exception as e:
-        print(f"Erreur lors du traitement : {e}")
+        print(f"Erreur lors du traitement de la requête: {str(e)}")
         return jsonify({
-            'response': {
-                'text': "Désolé, je n'ai pas pu traiter votre demande. Veuillez réessayer."
-            }
+            'response': 'Désolé, une erreur est survenue lors du traitement de votre demande. Veuillez réessayer.'
         })
 
 @app.route('/feedback', methods=['POST'])
@@ -82,7 +76,7 @@ def health_check():
     try:
         # Vérifier l'accès aux fichiers essentiels
         required_files = [
-            'data/responses.json',
+            'data/scraping-data.json',
             'data/training_data.json'
         ]
         for file in required_files:

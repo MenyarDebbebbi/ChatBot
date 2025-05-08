@@ -1,522 +1,176 @@
-{
-  "questions": [
-    "Bonjour",
-    "Salut",
-    "Bonsoir",
-    "Au revoir",
-    "Comment s'inscrire à l'ISET ?",
-    "Quelle est la procédure d'inscription ?",
-    "Je veux m'inscrire",
-    "Comment faire une préinscription ?",
-    "Quels sont les programmes disponibles ?",
-    "Quelles sont les filières proposées ?",
-    "Quelles formations proposez-vous ?",
-    "Quelles sont les spécialités ?",
-    "Où se trouve l'ISET ?",
-    "Quelle est l'adresse de l'ISET ?",
-    "Comment venir à l'ISET ?",
-    "Quel est l'itinéraire pour venir ?",
-    "Quelles sont les conditions d'admission ?",
-    "Quels sont les critères de sélection ?",
-    "Comment être admis ?",
-    "Quel est le processus de sélection ?",
-    "Quel est le coût des études ?",
-    "Combien coûte la formation ?",
-    "Quels sont les frais de scolarité ?",
-    "Quel est le prix des études ?",
-    "Quand commencent les cours ?",
-    "Quelle est la date de rentrée ?",
-    "Quel est le calendrier universitaire ?",
-    "Quand débute l'année scolaire ?",
-    "Comment contacter l'administration ?",
-    "Quel est le numéro de téléphone ?",
-    "Quelle est l'adresse email ?",
-    "Comment joindre le secrétariat ?",
-    "Y a-t-il des bourses disponibles ?",
-    "Comment obtenir une bourse ?",
-    "Quelles sont les aides financières ?",
-    "Comment financer mes études ?",
-    "Quels sont les débouchés ?",
-    "Que faire après l'ISET ?",
-    "Quelles sont les opportunités professionnelles ?",
-    "Quels métiers après la formation ?",
-    "Quels sont les horaires des cours ?",
-    "Comment se déroule une journée type ?",
-    "Quel est l'emploi du temps ?",
-    "Y a-t-il des stages ?",
-    "Les stages sont-ils obligatoires ?",
-    "Comment trouver un stage ?",
-    "Quelle est la durée des stages ?",
-    "Hello",
-    "Hi",
-    "Good evening",
-    "Goodbye",
-    "How to enroll at ISET?",
-    "What is the registration process?",
-    "I want to register",
-    "How to pre-register?",
-    "What programs are available?",
-    "What courses do you offer?",
-    "What are the specializations?",
-    "What training programs are available?",
-    "Where is ISET located?",
-    "What is ISET's address?",
-    "How to get to ISET?",
-    "What are the admission requirements?",
-    "What are the selection criteria?",
-    "How to be admitted?",
-    "What is the selection process?",
-    "What is the cost of studies?",
-    "How much is the tuition?",
-    "What are the tuition fees?",
-    "When do classes start?",
-    "What is the start date?",
-    "What is the academic calendar?",
-    "How to contact administration?",
-    "What is the phone number?",
-    "What is the email address?",
-    "Are scholarships available?",
-    "How to get a scholarship?",
-    "What financial aid is available?",
-    "What are the career opportunities?",
-    "What jobs after graduation?",
-    "What are the professional opportunities?",
-    "What is the class schedule?",
-    "How does a typical day look like?",
-    "Are internships required?",
-    "How to find an internship?",
-    "Où se trouve l'ISET Sfax ?",
-    "Quelles sont les conditions d'admission ?",
-    "Y a-t-il une formation à distance ?",
-    "Avez-vous des clubs étudiants ?",
-    "Comment accéder à la bibliothèque ?",
-    "Quels sont les services aux étudiants ?",
-    "Comment faire une réclamation ?",
-    "Comment obtenir mon diplôme ?",
-    "Quels types de stages proposez-vous ?",
-    "Comment obtenir une attestation de stage ?",
-    "Je veux une attestation de stage",
-    "Où puis-je obtenir mon attestation de stage ?",
-    "Comment avoir une attestation de travail ?",
-    "Je souhaite une attestation de travail",
-    "Quelle est la procédure pour avoir une attestation de travail ?",
-    "Comment obtenir une attestation de présence ?",
-    "Je veux une attestation de présence",
-    "Quelle est l'adresse exacte de l'ISET ?",
-    "Je veux connaître l'emplacement précis de l'ISET",
-    "Donnez-moi l'adresse complète de l'ISET",
-    "Comment utiliser la fonction vocale ?",
-    "Je veux parler au chatbot",
-    "Comment activer la reconnaissance vocale ?",
-    "Comment fonctionne le mode vocal ?",
-    "Puis-je utiliser ma voix ?",
-    "Comment envoyer un message vocal ?",
-    "Activer le mode vocal",
-    "Démarrer la reconnaissance vocale",
-    "Start voice chat",
-    "Enable voice recognition",
-    "Parler au chatbot",
-    "Voice mode",
-    "Mode vocal",
-    "Microphone ne fonctionne pas",
-    "Problème avec la reconnaissance vocale",
-    "Error with voice recognition",
-    "Can't use microphone",
-    "Comment analyser une image ?",
-    "Je veux envoyer une photo",
-    "Comment envoyer une image ?",
-    "Pouvez-vous analyser cette image ?",
-    "Que voyez-vous sur cette image ?",
-    "Décrivez cette photo",
-    "How to use voice chat?",
-    "I want to speak to the chatbot",
-    "How to analyze an image?",
-    "Can you describe this image?",
-    "Erreur de réponse",
-    "Mauvaise réponse",
-    "Réponse non pertinente",
-    "Le chatbot ne comprend pas ma question",
-    "Réponse incorrecte",
-    "La réponse ne correspond pas à ma question",
-    "Wrong answer",
-    "Incorrect response",
-    "Bot doesn't understand",
-    "Response not relevant",
-    "Question inconnue",
-    "Je ne comprends pas",
-    "Question non trouvée",
-    "Autre question",
-    "Question non reconnue",
-    "Unknown question",
-    "I don't understand",
-    "Different question",
-    "Not in database",
-    "Question not found"
-  ],
-  "responses": [
-    "Bonjour! Comment puis-je vous aider?",
-    "Bonjour! Je suis là pour vous aider.",
-    "Bonsoir! Comment puis-je vous aider?",
-    "Au revoir! Bonne journée!",
-    "Pour s'inscrire à l'ISET, suivez ces étapes:\n1. Créez un compte sur notre portail\n2. Remplissez le formulaire de préinscription\n3. Téléchargez les documents requis\n4. Soumettez votre dossier\n5. Attendez la confirmation",
-    "La procédure d'inscription se fait en ligne sur notre portail. Visitez www.iset-inscription.tn",
-    "Rendez-vous sur notre portail d'inscription: www.iset-inscription.tn",
-    "La préinscription se fait uniquement en ligne sur www.inscription.tn",
-    "L'ISET propose plusieurs programmes:\n- Licence en Informatique\n- Licence en Électronique\n- Licence en Mécanique\n- Licence en Génie Civil\n- Master en Systèmes Embarqués\n- Master en Réseaux et Télécommunications",
-    "Nos filières principales sont: Informatique, Électronique, Mécanique, Génie Civil",
-    "Nous proposons des formations en:\n- Informatique\n- Électronique\n- Mécanique\n- Génie Civil",
-    "Nos spécialités couvrent les domaines techniques: informatique, électronique, mécanique, génie civil",
-    "L'ISET est situé à [adresse complète]. Coordonnées GPS: [coordonnées]",
-    "Notre adresse: [adresse complète]",
-    "Vous pouvez nous rejoindre en:\n- Bus: lignes 10, 12, 15\n- Métro: station [nom]\n- Voiture: parking disponible",
-    "Pour venir à l'ISET:\n1. Depuis le centre-ville: [itinéraire]\n2. Depuis l'aéroport: [itinéraire]",
-    "Conditions d'admission:\n- Baccalauréat avec mention\n- Dossier scolaire\n- Test d'admission\n- Entretien pour certaines filières",
-    "Nos critères de sélection incluent:\n- Notes du bac\n- Dossier scolaire\n- Test d'admission\n- Entretien",
-    "L'admission se fait sur dossier et concours",
-    "Le processus de sélection comprend l'étude du dossier, un test et un entretien",
-    "Les frais de scolarité varient selon le programme:\n- Licence: [montant]/an\n- Master: [montant]/an\nContactez le service financier pour plus de détails",
-    "Le coût de la formation dépend du programme choisi. Contactez-nous pour un devis personnalisé",
-    "Les frais universitaires sont de [montant] par an, payables en 3 fois",
-    "Le tarif des études varie selon le niveau et la spécialité choisie",
-    "Les cours débutent en septembre. Le calendrier détaillé est disponible sur notre site",
-    "La rentrée est prévue pour septembre. Consultez le calendrier sur www.iset.tn/calendrier",
-    "L'année universitaire commence en septembre et se termine en juin",
-    "Le premier semestre débute en septembre, le second en février",
-    "Pour contacter l'administration:\nTél: [numéro]\nEmail: [email]\nHoraires: 8h30-16h30",
-    "Notre standard: [numéro]",
-    "Email de contact: [email]",
-    "Le secrétariat est ouvert du lundi au vendredi, 8h30-16h30",
-    "Plusieurs types de bourses sont disponibles:\n- Bourse d'excellence\n- Bourse sociale\n- Bourse de mérite",
-    "Pour obtenir une bourse, déposez votre dossier avant le [date] au service des bourses",
-    "Les aides financières comprennent:\n- Bourses d'études\n- Prêts étudiants\n- Aides au logement",
-    "Différentes options de financement sont disponibles. Consultez notre service social",
-    "Nos diplômés travaillent dans:\n- Entreprises technologiques\n- Industries\n- Bureaux d'études\n- Startups",
-    "Après l'ISET, vous pouvez:\n- Intégrer le marché du travail\n- Poursuivre en master\n- Créer votre entreprise",
-    "Les débouchés incluent:\n- Ingénieur développement\n- Chef de projet\n- Consultant technique\n- Entrepreneur",
-    "Les métiers accessibles:\n- Développeur\n- Ingénieur\n- Chef de projet\n- Consultant",
-    "Les cours ont lieu du lundi au vendredi, 8h-18h",
-    "Une journée type comprend:\n- Cours magistraux\n- TD/TP\n- Projets pratiques",
-    "Les emplois du temps sont disponibles sur l'ENT",
-    "Les stages sont obligatoires en L3 et M2",
-    "Un stage de 4 à 6 mois est obligatoire en fin de cursus",
-    "Notre service des stages vous accompagne dans votre recherche",
-    "Les stages durent de 2 à 6 mois selon le niveau",
-    "Hello! How can I help you?",
-    "Hi! I'm here to help.",
-    "Good evening! How can I assist you?",
-    "Goodbye! Have a nice day!",
-    "To enroll at ISET, follow these steps:\n1. Create an account\n2. Fill the pre-registration form\n3. Upload required documents\n4. Submit your application\n5. Wait for confirmation",
-    "Registration is done online through our portal: www.iset-inscription.tn",
-    "Visit our registration portal: www.iset-inscription.tn",
-    "Pre-registration is only available online at www.iset-inscription.tn",
-    "ISET offers several programs:\n- Bachelor in Computer Science\n- Bachelor in Electronics\n- Bachelor in Mechanics\n- Master in Embedded Systems",
-    "Our main courses are in: Computer Science, Electronics, Mechanics",
-    "We offer training in:\n- Computer Science\n- Electronics\n- Mechanics",
-    "ISET is located at [full address]. GPS coordinates: [coordinates]",
-    "Our address is: [full address]",
-    "Admission requirements:\n- High school diploma\n- Academic record\n- Admission test\n- Interview for some programs",
-    "Selection criteria include:\n- High school grades\n- Academic record\n- Admission test",
-    "Tuition fees vary by program:\n- Bachelor: [amount]/year\n- Master: [amount]/year",
-    "Classes start in September. Check the detailed calendar on our website",
-    "Contact administration:\nPhone: [number]\nEmail: [email]\nHours: 8:30-16:30",
-    "Various scholarships are available:\n- Excellence scholarship\n- Social scholarship\n- Merit scholarship",
-    "Career opportunities include:\n- Software Engineer\n- Project Manager\n- Technical Consultant",
-    "Classes are held Monday to Friday, 8AM-6PM",
-    "Internships are mandatory in final year",
-    "Our internship office helps you find placements",
-    "L'ISET Sfax est situé à : Route de Mahdia Km 2.5 BP 88 A - 3099 Sfax, Tunisie. Voici le lien pour plus d'informations : https://isetsf.rnu.tn/fr",
-    "L'adresse est : Route de Mahdia Km 2.5 BP 88 A - 3099 Sfax, Tunisie",
-    "Vous pouvez contacter l'ISET Sfax par :\nTéléphone : (+216) 74 431 425\nFax : (216) 74 431 386\nEmail : iset.sfax@sfax.r-iset.tn\nPlus d'informations sur : https://isetsf.rnu.tn/fr",
-    "Le numéro de téléphone est : (+216) 74 431 425",
-    "L'adresse email est : iset.sfax@sfax.r-iset.tn",
-    "L'ISET Sfax dispose de 5 départements :\n- Sciences Économiques et Gestion\n- Génie Civil\n- Génie des Procédés\n- Génie Mécanique\n- Informatique\nPlus de détails sur : https://isetsf.rnu.tn/fr/formation",
-    "L'ISET propose des Licences Nationales et des Mastères Professionnels. Consultez https://isetsf.rnu.tn/fr/formation pour la liste complète",
-    "Les licences disponibles sont :\n- Sciences Économiques et de Gestion (Comptabilité & Finances, Management, Commerce & Distribution)\n- Technologie de l'Informatique\n- Génie des Procédés\n- Génie Civil\n- Génie Mécanique\nPlus d'informations : https://isetsf.rnu.tn/fr/formation",
-    "Les mastères professionnels proposés sont :\n- Administration des Systèmes, Sécurité et Cloud Computing (ASSCC)\n- Développement des Systèmes Informatiques et Réseaux (DSIR)\n- Instrumentation des Processus et Procédés Industriels (IPPI)\n- Innovation et Supply Chain Management (ISCM)\n- Management Intégré Qualité Sécurité, Santé au travail et environnement (MIQSSE)",
-    "Pour s'inscrire, consultez la procédure détaillée sur : https://isetsf.rnu.tn/fr/vie-universitaire/scolarite/procedure-d-inscription",
-    "Les conditions d'admission varient selon le niveau et la formation. Consultez https://isetsf.rnu.tn/fr/formation pour plus de détails",
-    "Oui, l'ISET propose des formations continues à distance en :\n- Licence en Technologie de l'Informatique\n- Mastère DSIR\n- Mastère ISCM\nPlus d'informations sur : https://isetsf.rnu.tn/fr/formation/formation-continue-a-distance",
-    "L'ISET dispose de plusieurs clubs étudiants et activités culturelles. Visitez https://isetsf.rnu.tn/fr/vie-universitaire/clubs pour en savoir plus",
-    "La bibliothèque est accessible à tous les étudiants. Plus d'informations sur : https://isetsf.rnu.tn/fr/vie-universitaire/bibliotheque",
-    "Les services aux étudiants incluent :\n- Scolarité\n- Stages\n- Formations certifiantes (MICROSOFT, SOLIDWORKS)\n- Bibliothèque\n- Hébergement et restauration\nConsultez https://isetsf.rnu.tn/fr/vie-universitaire",
-    "Pour faire une réclamation, utilisez le service de traitement des réclamations : https://isetsf.rnu.tn/fr/management-qualite/traitement-des-reclamations",
-    "Pour obtenir votre diplôme, suivez la procédure sur : https://isetsf.rnu.tn/fr/vie-universitaire/scolarite/procedure-d-obtention-des-diplomes",
-    "L'ISET propose différents types de stages. Plus d'informations sur : https://isetsf.rnu.tn/fr/vie-universitaire/stages",
-    "Il existe trois types de stages :\n- Stage d'initiation\n- Stage de perfectionnement\n- Stage de fin d'études\nConsultez https://isetsf.rnu.tn/fr/vie-universitaire/stages pour plus de détails",
-    "Pour obtenir une attestation de stage, voici la procédure :\n1. Remplissez le formulaire de demande d'attestation de stage disponible sur notre portail\n2. Joignez une copie de la convention de stage signée\n3. Soumettez votre demande au service des stages\n4. L'attestation sera prête sous 48h ouvrables\n\nVoici le modèle du document que vous recevrez : [Lien vers le modèle d'attestation de stage]",
-    "Pour obtenir une attestation de stage, connectez-vous à votre espace étudiant et suivez ces étapes :\n1. Allez dans la section 'Mes documents'\n2. Cliquez sur 'Demande d'attestation de stage'\n3. Remplissez le formulaire\n4. Joignez les justificatifs nécessaires\n\nVotre attestation sera disponible sous 48h ouvrables. Voici à quoi ressemble le document : [Lien vers le modèle d'attestation de stage]",
-    "Pour obtenir une attestation de travail, veuillez :\n1. Faire la demande auprès du service administratif\n2. Fournir votre contrat de travail\n3. Préciser la période concernée\n\nL'attestation sera délivrée sous 24h ouvrables",
-    "L'attestation de travail peut être obtenue :\n- En ligne via votre espace personnel\n- Ou directement auprès du service administratif\nDélai de traitement : 24h ouvrables",
-    "Pour une attestation de présence :\n1. Connectez-vous à votre espace étudiant\n2. Section 'Mes documents'\n3. Sélectionnez 'Attestation de présence'\n4. Choisissez la période souhaitée",
-    "L'ISET est situé à l'adresse suivante :\nRoute de Mahdia Km 2.5\nBP 88 A - 3099 Sfax\nTunisie\n\nPoints de repère :\n- Près de la station service\n- À côté du centre commercial\n- En face de la faculté de médecine",
-    "Voici l'adresse complète de l'ISET :\nRoute de Mahdia Km 2.5\nBP 88 A - 3099 Sfax\nTunisie\n\nCoordonnées GPS : [Coordonnées]\nAccès par bus : Lignes 1, 3, et 7",
-    "Pour utiliser la fonction vocale :\n1. Cliquez sur l'icône du microphone 🎤 en haut de l'écran\n2. Quand le bouton devient bleu, vous pouvez parler\n3. Parlez clairement en français ou en anglais\n4. Votre message sera automatiquement transcrit\n\nSi le microphone ne fonctionne pas :\n- Vérifiez que vous avez autorisé l'accès au microphone\n- Assurez-vous qu'aucune autre application n'utilise le microphone\n- Essayez de rafraîchir la page",
-    "Pour activer le mode vocal :\n1. Cliquez sur le bouton microphone 🎤\n2. Attendez que le bouton devienne bleu\n3. Parlez naturellement\n4. La transcription apparaîtra automatiquement\n\nNote : Si vous rencontrez des problèmes, vérifiez les permissions de votre navigateur.",
-    "Si vous rencontrez des problèmes avec la reconnaissance vocale :\n1. Vérifiez que votre microphone est bien connecté\n2. Autorisez l'accès au microphone dans votre navigateur\n3. Parlez plus fort et plus clairement\n4. Si le problème persiste, utilisez le mode texte\n\nVous pouvez toujours taper votre message si la reconnaissance vocale ne fonctionne pas.",
-    "Voice chat instructions:\n1. Click the microphone icon 🎤\n2. Wait for the blue indicator\n3. Speak clearly\n4. Your message will be transcribed\n\nIf you have issues:\n- Check microphone permissions\n- Ensure no other app is using the microphone\n- Try refreshing the page",
-    "Pour envoyer une image :\n1. Cliquez sur l'icône d'image 📷\n2. Sélectionnez une image depuis votre appareil\n3. L'image sera analysée automatiquement\n\nJe peux répondre à vos questions sur l'image envoyée.",
-    "Pour analyser une image :\n1. Utilisez le bouton 📷 ou glissez-déposez votre image\n2. Attendez l'analyse automatique\n3. Posez vos questions sur l'image\n\nJe peux décrire le contenu et répondre à vos questions spécifiques.",
-    "Je vois votre image. Que souhaitez-vous savoir à son sujet ? Je peux :\n- Décrire son contenu\n- Identifier des éléments spécifiques\n- Répondre à vos questions sur l'image",
-    "To use voice chat:\n1. Click the microphone icon 🎤\n2. Allow microphone access if prompted\n3. Speak clearly\n4. Your message will be transcribed automatically",
-    "To analyze an image:\n1. Click the image icon 📷\n2. Select an image from your device\n3. The image will be analyzed automatically\n\nI can answer questions about the uploaded image.",
-    "Je m'excuse si ma réponse n'était pas pertinente. Pour obtenir une meilleure réponse, essayez de :\n1. Reformuler votre question de manière plus spécifique\n2. Utiliser des mots-clés précis\n3. Poser une seule question à la fois\n\nPar exemple :\n- Au lieu de 'Comment faire ?' → 'Comment s'inscrire à l'ISET ?'\n- Au lieu de 'Les horaires' → 'Quels sont les horaires des cours ?'",
-    "Pour obtenir une réponse plus précise, vous pouvez :\n1. Être plus spécifique dans votre question\n2. Mentionner le sujet exact (inscription, cours, stages, etc.)\n3. Éviter les questions trop générales\n\nExemple :\n- Plutôt que 'Je veux des informations' \n- Dites 'Je veux des informations sur les stages de fin d'études'",
-    "I apologize if my response wasn't relevant. To get a better answer, try to:\n1. Be more specific in your question\n2. Use precise keywords\n3. Ask one question at a time\n\nFor example:\n- Instead of 'How to?' → 'How to enroll at ISET?'\n- Instead of 'Schedule' → 'What is the class schedule?'",
-    "Je ne trouve pas de réponse exacte à votre question. Voici ce que vous pouvez faire :\n1. Reformulez votre question différemment\n2. Posez une question plus générale sur le sujet\n3. Choisissez parmi ces sujets courants :\n- Inscription et admission\n- Formations et cours\n- Stages et diplômes\n- Contact et localisation",
-    "Désolé, je ne peux pas répondre précisément à cette question. Pour vous aider, voici les sujets sur lesquels je peux vous renseigner :\n- Inscription et admission à l'ISET\n- Programmes et formations disponibles\n- Stages et attestations\n- Informations pratiques (contact, adresse)\n\nQuel sujet vous intéresse ?",
-    "I don't have a specific answer to this question. Here are the main topics I can help you with:\n- Registration and admission\n- Available programs and courses\n- Internships and certificates\n- Contact information\n\nWhich topic interests you?"
-  ],
-  "stages": {
-    "questions": [
-      "Comment faire une demande de stage?",
-      "Je veux faire un stage à l'ISET",
-      "Quelles sont les conditions pour faire un stage?",
-      "Est-ce que je peux avoir une attestation de stage?",
-      "Quelle est la durée du stage?",
-      "Les stages sont-ils obligatoires?",
-      "Y a-t-il des stages d'été?",
-      "Comment trouver un stage?",
-      "Quand commence le stage?",
-      "Qui peut m'aider pour le stage?",
-      "Je cherche un stage en informatique",
-      "Donnez-moi des informations sur les stages",
-      "Procédure de stage",
-      "Stage en entreprise comment faire",
-      "Je veux une convention de stage"
+[
+  {
+    "patterns": [
+      "Quels sont les programmes disponibles ?",
+      "Quelles formations sont disponibles ?",
+      "Quels sont les cursus disponibles ?",
+      "Que peut-on étudier à l'ISET ?"
     ],
-    "responses": {
-      "default": {
-        "text": "Pour les stages à l'ISET, voici les informations importantes :",
-        "steps": [
-          "1. Choisir une entreprise d'accueil",
-          "2. Remplir la fiche de stage",
-          "3. Faire signer la convention de stage",
-          "4. Suivre le stage pendant la période définie",
-          "5. Rédiger le rapport de stage"
-        ]
-      },
-      "attestation": {
-        "text": "Voici votre attestation de stage :",
-        "image": "/static/images/attestations/attestation_stage.jpg"
-      },
-      "duree": "La durée du stage est généralement de 4 à 6 mois selon la formation.",
-      "periode": "Les stages se déroulent principalement entre février et juillet."
-    }
-  },
-  "attestations": {
-    "questions": [
-      "Je veux une attestation",
-      "Comment obtenir une attestation?",
-      "Attestation de travail svp",
-      "Donnez-moi une attestation de stage",
-      "Je voudrais une attestation de réussite",
-      "Où trouver mon attestation?",
-      "Attestation de scolarité",
-      "Comment télécharger mon attestation?",
-      "J'ai besoin d'une attestation urgente",
-      "Attestation en anglais possible?",
-      "Procédure pour avoir une attestation",
-      "Délai pour obtenir une attestation"
-    ],
-    "responses": {
-      "travail": {
-        "text": "Voici votre attestation de travail :",
-        "image": "/static/images/attestations/attestation_travail.jpg"
-      },
-      "stage": {
-        "text": "Voici votre attestation de stage :",
-        "image": "/static/images/attestations/attestation_stage.jpg"
-      },
-      "scolarite": {
-        "text": "Voici votre attestation de scolarité :",
-        "image": "/static/images/attestations/attestation_scolarite.jpg"
-      }
-    }
-  },
-  "inscription": {
-    "questions": [
-      "Comment s'inscrire à l'ISET?",
-      "Je veux m'inscrire",
-      "Quels sont les documents nécessaires pour l'inscription?",
-      "Date limite d'inscription",
-      "Inscription en ligne possible?",
-      "Frais d'inscription",
-      "Procédure d'inscription pour les étudiants étrangers",
-      "Quand commencent les inscriptions?",
-      "Comment faire une préinscription?",
-      "Documents requis pour l'inscription",
-      "Je veux faire une inscription tardive",
-      "Inscription aux examens",
-      "Renouvellement d'inscription"
-    ],
-    "responses": {
-      "default": {
-        "text": "Pour s'inscrire à l'ISET, voici la procédure à suivre :",
-        "steps": [
-          "1. Créer un compte sur www.inscription.iset.tn",
-          "2. Remplir le formulaire de préinscription",
-          "3. Télécharger et imprimer le dossier",
-          "4. Joindre les documents requis",
-          "5. Déposer le dossier complet au bureau des inscriptions"
-        ]
-      },
-      "documents": [
-        "Baccalauréat ou équivalent",
-        "Carte d'identité",
-        "Photos d'identité",
-        "Fiche de préinscription",
-        "Justificatif de paiement"
-      ],
-      "dates": "Les inscriptions commencent généralement en juillet et se terminent en septembre."
-    }
-  },
-  "formations": {
-    "questions": [
-      "Quelles sont les formations disponibles?",
-      "Je veux des informations sur les filières",
-      "Quelles spécialités proposez-vous?",
-      "Durée des formations",
-      "Formation en alternance possible?",
-      "Contenu des cours",
-      "Quels diplômes proposez-vous?",
-      "Les débouchés après la formation",
-      "Formation continue disponible?",
-      "Niveau requis pour la formation",
-      "Formation à distance possible?",
-      "Coût de la formation",
-      "Emploi du temps des formations"
-    ],
-    "responses": {
-      "default": {
-        "text": "L'ISET propose plusieurs formations :",
-        "filieres": [
-          "Génie Électrique",
-          "Génie Mécanique",
-          "Informatique",
-          "Gestion des Entreprises",
-          "Commerce International"
-        ]
-      },
-      "duree": "La durée des formations est de 3 ans (Licence) ou 2 ans (Master).",
-      "modalites": "Les cours sont dispensés en présentiel avec possibilité de stages en entreprise."
-    }
-  },
-  "examens": {
-    "questions": [
-      "Quand sont les examens?",
-      "Dates des examens",
-      "Comment se préparer aux examens?",
-      "Résultats des examens",
-      "Rattrapage possible?",
-      "Notes des examens",
-      "Programme des examens",
-      "Absence aux examens",
-      "Consultation des copies",
-      "Recours pour les examens",
-      "Examens de rattrapage",
-      "Conditions de réussite aux examens"
-    ],
-    "responses": {
-      "default": {
-        "text": "Informations importantes concernant les examens :",
-        "points": [
-          "Les examens ont lieu en janvier et en mai",
-          "Une session de rattrapage est organisée en juin",
-          "Les résultats sont publiés sur le site web",
-          "Un délai de 48h est accordé pour les recours"
-        ]
-      },
-      "dates": "Le calendrier des examens est publié un mois avant les épreuves.",
-      "resultats": "Les résultats sont disponibles sur votre espace étudiant."
-    }
-  },
-  "salutation": {
-    "questions": ["bonjour", "salut", "bonsoir", "hello"],
     "responses": [
-      "Bonjour! Comment puis-je vous aider aujourd'hui?",
-      "Salut! Je suis l'assistant virtuel de l'ISET. Que puis-je faire pour vous?",
-      "Bienvenue! Je suis là pour répondre à vos questions."
+      "L'ISET Sfax propose les formations suivantes :\n\n1. Licence Nationale en Technologies de l'Informatique :\n- Formation initiale et à distance\n- Spécialisation en développement logiciel, réseaux et systèmes informatiques\n\n2. Mastères Professionnels :\n- Administration des Systèmes, Sécurité et Cloud Computing (ASSCC)\n- Développement des Systèmes Informatiques et Réseaux (DSIR)"
     ]
   },
-  "programmes": {
-    "questions": [
-      "Quels sont les programmes disponibles?",
-      "Quelles formations proposez-vous?",
-      "Quelles sont les spécialités?",
-      "Quels sont les domaines d'études?",
-      "Quelles sont les filières disponibles?",
-      "Je veux connaître les programmes",
-      "Parlez-moi des formations",
-      "Quelles études peut-on faire?",
-      "Quels sont les cursus proposés?",
-      "Quelles sont les options d'études?"
+  {
+    "patterns": [
+      "Comment s'inscrire à l'ISET ?",
+      "Quelle est la procédure d'inscription ?",
+      "Je veux m'inscrire à l'ISET",
+      "Comment faire pour s'inscrire ?"
     ],
-    "responses": {
-      "text": "L'ISET propose plusieurs programmes de formation :",
-      "programmes": [
-        {
-          "nom": "Génie Électrique",
-          "description": "Formation en électronique, automatisme et systèmes embarqués",
-          "durée": "3 ans"
-        },
-        {
-          "nom": "Génie Mécanique",
-          "description": "Formation en conception mécanique et production industrielle",
-          "durée": "3 ans"
-        },
-        {
-          "nom": "Informatique",
-          "description": "Formation en développement logiciel et réseaux",
-          "durée": "3 ans"
-        },
-        {
-          "nom": "Gestion des Entreprises",
-          "description": "Formation en management et administration",
-          "durée": "3 ans"
-        }
-      ],
-      "suggestions": [
-        "Comment s'inscrire à un programme ?",
-        "Quelles sont les conditions d'admission ?",
-        "Quels sont les débouchés ?"
-      ]
-    }
+    "responses": [
+      "Pour s'inscrire à l'ISET Sfax, voici la procédure à suivre :\n\n1. Inscription en ligne sur le site www.orientation.tn\n2. Dépôt du dossier d'inscription comprenant :\n   - Extrait de naissance\n   - Copie de la CIN\n   - 4 photos d'identité\n   - Relevé de notes du bac\n   - Reçu des frais d'inscription\n3. Validation de l'inscription au bureau de scolarité\n\nPour plus d'informations, contactez le service de scolarité au (+216) 74 431 425"
+    ]
   },
-  "attestation": {
-    "questions": [
-      "Je voudrais une attestation",
-      "Comment obtenir une attestation",
-      "Attestation de stage",
+  {
+    "patterns": [
+      "Où se trouve l'ISET ?",
+      "Quelle est l'adresse de l'ISET ?",
+      "Comment accéder à l'ISET ?",
+      "Localisation de l'ISET"
+    ],
+    "responses": [
+      "L'ISET Sfax est situé à :\nRoute de Mahdia Km 2.5 BP 88 A - 3099 Sfax\n\nContact :\n- Téléphone : (+216) 74 431 425\n- Fax : (+216) 74 431 673\n- Email : iset.sfax@sfax.r-iset.tn\n\nHoraires d'ouverture : Du lundi au vendredi de 8h30 à 16h30"
+    ]
+  },
+  {
+    "patterns": [
+      "Je veux une attestation de travail",
+      "Comment obtenir une attestation de travail",
       "Attestation de travail",
-      "Je veux mon attestation"
+      "Demande d'attestation de travail"
     ],
-    "responses": {
-      "travail": {
-        "text": "Voici votre attestation de travail :",
-        "image": "/static/images/attestations/travail.jpg"
-      },
-      "stage": {
-        "text": "Voici votre attestation de stage :",
-        "image": "/static/images/attestations/stage.jpg"
-      }
-    }
+    "responses": [
+      "Pour obtenir une attestation de travail, voici la procédure à suivre :\n\n1. Connectez-vous à votre espace étudiant sur le site de l'ISET\n2. Allez dans la section 'Demande de documents'\n3. Sélectionnez 'Attestation de travail'\n4. Remplissez le formulaire en ligne\n5. L'attestation sera disponible sous 24h au bureau de scolarité\n\nNote : Vous devez être un étudiant actif pour faire cette demande.\nPour plus d'informations, contactez le service de scolarité au (+216) 74 431 425"
+    ]
   },
-  "inscription": {
-    "questions": [
-      "Comment s'inscrire",
-      "Je veux m'inscrire",
-      "Procédure d'inscription",
-      "Étapes pour s'inscrire",
-      "Comment faire pour s'inscrire"
+  {
+    "patterns": [
+      "Je veux une attestation de stage",
+      "Comment obtenir une attestation de stage",
+      "Attestation de stage",
+      "Demande d'attestation de stage"
     ],
-    "responses": {
-      "text": "Pour s'inscrire à l'ISET, voici les étapes à suivre :",
-      "steps": [
-        "1. Créer un compte sur la plateforme",
-        "2. Remplir le formulaire de candidature",
-        "3. Télécharger les documents requis",
-        "4. Soumettre votre dossier"
-      ]
-    }
+    "responses": [
+      "Pour obtenir une attestation de stage, suivez ces étapes :\n\n1. Rendez-vous au bureau des stages de l'ISET\n2. Présentez votre convention de stage signée\n3. Fournissez l'évaluation de votre stage\n4. L'attestation sera préparée sous 48h\n\nDocuments nécessaires :\n- Convention de stage signée\n- Rapport de stage (si terminé)\n- Fiche d'évaluation du tuteur\n\nPour plus d'informations, contactez le service des stages au (+216) 74 431 425"
+    ]
+  },
+  {
+    "patterns": [
+      "Je veux une attestation de présence",
+      "Comment obtenir une attestation de présence",
+      "Attestation de présence",
+      "Demande d'attestation de présence"
+    ],
+    "responses": [
+      "Pour obtenir une attestation de présence :\n\n1. Faites la demande en ligne via votre espace étudiant\n2. L'attestation sera disponible sous 24h\n3. Récupérez le document au service de scolarité\n\nNote : Cette attestation confirme votre présence aux cours pour la période en cours.\nPour toute urgence, présentez-vous directement au bureau de scolarité avec votre carte d'étudiant."
+    ]
+  },
+  {
+    "patterns": [
+      "parle moi du département informatique",
+      "département informatique",
+      "info sur le département info",
+      "département info",
+      "infos sur le département info",
+      "formation en informatique"
+    ],
+    "responses": [
+      "Le département Technologies de l'Informatique de l'ISET Sfax offre une formation complète en informatique avec plusieurs spécialités :\n\n1. Développement Logiciel :\n- Java, JEE, PHP\n- Développement Web et Mobile\n- Bases de données\n\n2. Intelligence Artificielle :\n- Machine Learning\n- Data Science\n- Big Data\n\n3. Réseaux et Systèmes :\n- Administration système\n- Sécurité informatique\n- Cloud Computing"
+    ]
+  },
+  {
+    "patterns": [
+      "cours java",
+      "formation java",
+      "apprendre java",
+      "programme java",
+      "étudier java",
+      "java programming"
+    ],
+    "responses": [
+      "Le cours Java à l'ISET comprend :\n\n1. Fondamentaux Java :\n- Introduction à la POO\n- Syntaxe et types de données\n- Classes et objets\n\n2. Java Avancé :\n- Héritage et polymorphisme\n- Collections et génériques\n- Gestion des exceptions\n\n3. Projets Pratiques :\n- Applications desktop\n- Connexion base de données\n- Interfaces graphiques\n\nPour accéder au cours : https://iset.uvt.tn/course/view.php?id=102"
+    ]
+  },
+  {
+    "patterns": [
+      "cours machine learning",
+      "formation machine learning",
+      "apprentissage automatique",
+      "ml course",
+      "cours ml"
+    ],
+    "responses": [
+      "Le cours de Machine Learning couvre :\n\n1. Fondamentaux :\n- Introduction à l'apprentissage automatique\n- Préparation des données\n- Algorithmes de base\n\n2. Techniques Avancées :\n- Réseaux de neurones\n- Deep Learning\n- Classification et régression\n\n3. Applications Pratiques :\n- Python pour ML\n- Bibliothèques (scikit-learn, TensorFlow)\n- Projets réels\n\nCe cours est disponible en 3ème année spécialité Intelligence Artificielle."
+    ]
+  },
+  {
+    "patterns": [
+      "cours php",
+      "formation php",
+      "apprendre php",
+      "développement php",
+      "php mysql",
+      "web php"
+    ],
+    "responses": [
+      "Le cours PHP comprend :\n\n1. Bases du PHP :\n- Syntaxe et variables\n- Structures de contrôle\n- Fonctions et tableaux\n\n2. PHP & MySQL :\n- Connexion base de données\n- CRUD operations\n- Sécurité et validation\n\n3. Frameworks :\n- Introduction à Laravel\n- MVC architecture\n- API REST\n\nAccès au cours : https://iset.uvt.tn/course/view.php?id=104"
+    ]
+  },
+  {
+    "patterns": [
+      "cours jee",
+      "formation jee",
+      "java ee",
+      "enterprise java",
+      "java entreprise"
+    ],
+    "responses": [
+      "Le cours Java EE (Jakarta EE) couvre :\n\n1. Architecture d'entreprise :\n- Servlets et JSP\n- EJB (Enterprise JavaBeans)\n- JPA (Java Persistence API)\n\n2. Développement Web :\n- JSF (JavaServer Faces)\n- REST Web Services\n- Spring Framework\n\n3. Projets d'entreprise :\n- Applications distribuées\n- Sécurité et authentification\n- Déploiement sur serveurs\n\nCe cours est disponible en 3ème année spécialité Développement."
+    ]
+  },
+  {
+    "patterns": [
+      "cours data science",
+      "formation data science",
+      "science des données",
+      "analyse de données"
+    ],
+    "responses": [
+      "Le cours Data Science comprend :\n\n1. Analyse de Données :\n- Statistiques descriptives\n- Visualisation des données\n- Nettoyage et préparation\n\n2. Outils et Technologies :\n- Python pour Data Science\n- Pandas et NumPy\n- Jupyter Notebooks\n\n3. Applications Avancées :\n- Big Data Analytics\n- Data Mining\n- Projets d'analyse\n\nCe cours est disponible en Master ASSCC et DSIR."
+    ]
+  },
+  {
+    "patterns": [
+      "cours big data",
+      "formation big data",
+      "hadoop",
+      "spark",
+      "données massives"
+    ],
+    "responses": [
+      "Le cours Big Data couvre :\n\n1. Fondamentaux :\n- Introduction aux Big Data\n- Architecture distribuée\n- NoSQL databases\n\n2. Technologies :\n- Apache Hadoop\n- Apache Spark\n- MongoDB\n\n3. Applications :\n- Traitement distribué\n- Analyse en temps réel\n- Projets Big Data\n\nCe cours est disponible en Master spécialité Data Analytics."
+    ]
+  },
+  {
+    "patterns": [
+      "cours web",
+      "développement web",
+      "formation web",
+      "technologies web"
+    ],
+    "responses": [
+      "Le cours Développement Web comprend :\n\n1. Front-end :\n- HTML5 et CSS3\n- JavaScript et DOM\n- Frameworks (React, Angular)\n\n2. Back-end :\n- PHP/MySQL\n- Node.js\n- API REST\n\n3. Outils et Déploiement :\n- Git et GitHub\n- Docker\n- Cloud hosting\n\nAccès aux ressources : https://iset.uvt.tn/course/view.php?id=104"
+    ]
+  },
+  {
+    "patterns": [
+      "cours sécurité",
+      "sécurité informatique",
+      "cybersécurité",
+      "formation sécurité"
+    ],
+    "responses": [
+      "Le cours Sécurité Informatique couvre :\n\n1. Fondamentaux :\n- Cryptographie\n- Sécurité réseau\n- Analyse des menaces\n\n2. Protection :\n- Sécurité des applications\n- Pare-feu et IDS\n- Pentesting\n\n3. Gouvernance :\n- Normes de sécurité\n- Audit et conformité\n- Gestion des incidents\n\nCe cours est disponible en Master ASSCC."
+    ]
   }
-}
+]

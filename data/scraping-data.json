@@ -1,0 +1,249 @@
+{
+  "departement": {
+    "nom": "Technologies de l'Informatique",
+    "description": "Département spécialisé dans les technologies de l'information et de la communication",
+    "presentation": "Le département Technologies de l'Informatique de l'ISET Sfax est un centre d'excellence en formation informatique, offrant des cursus adaptés aux besoins du marché du travail"
+  },
+  "formations": {
+    "licence": {
+      "nom": "Licence Nationale en Technologies de l'Informatique",
+      "type": "Formation initiale et à distance",
+      "description": "Formation en développement logiciel, réseaux et systèmes informatiques",
+      "duree": "3 ans (6 semestres)",
+      "specialites": [
+        {
+          "nom": "Développement des Systèmes d'Information",
+          "description": "Spécialisation en développement logiciel et bases de données",
+          "debouches": [
+            "Développeur Full Stack",
+            "Analyste Programmeur",
+            "Développeur Web/Mobile",
+            "Chef de Projet Junior"
+          ]
+        },
+        {
+          "nom": "Réseaux et Systèmes",
+          "description": "Spécialisation en administration système et réseaux",
+          "debouches": [
+            "Administrateur Système",
+            "Technicien Réseaux",
+            "Responsable Infrastructure",
+            "Support Technique"
+          ]
+        }
+      ]
+    },
+    "masteres": [
+      {
+        "nom": "Administration des Systèmes, Sécurité et Cloud Computing (ASSCC)",
+        "type": "Mastère Professionnel",
+        "description": "Spécialisation en administration système, sécurité informatique et technologies cloud",
+        "duree": "2 ans (4 semestres)",
+        "objectifs": [
+          "Maîtriser l'administration des systèmes complexes",
+          "Gérer la sécurité informatique d'entreprise",
+          "Déployer des solutions cloud",
+          "Implémenter des stratégies de cybersécurité"
+        ],
+        "debouches": [
+          "Administrateur Systèmes Senior",
+          "Expert en Sécurité IT",
+          "Architecte Cloud",
+          "Consultant DevOps"
+        ]
+      },
+      {
+        "nom": "Développement des Systèmes Informatiques et Réseaux (DSIR)",
+        "type": "Mastère Professionnel",
+        "description": "Spécialisation en développement d'applications et gestion des réseaux",
+        "duree": "2 ans (4 semestres)",
+        "objectifs": [
+          "Concevoir des applications complexes",
+          "Gérer des projets informatiques",
+          "Maîtriser les architectures modernes",
+          "Développer des solutions innovantes"
+        ],
+        "debouches": [
+          "Architecte Logiciel",
+          "Chef de Projet IT",
+          "Expert Développement",
+          "Consultant IT"
+        ]
+      }
+    ]
+  },
+  "formation_continue": {
+    "presentation": "L'ISET Sfax propose des formations continues adaptées aux professionnels et aux étudiants souhaitant se perfectionner",
+    "types_formation": {
+      "licence": {
+        "nom": "Technologies de l'Informatique",
+        "type": "Formation à distance",
+        "duree": "3 ans",
+        "modalites": {
+          "cours": "Cours en ligne et présentiels le weekend",
+          "examens": "Examens en présentiel",
+          "stages": "Stages en entreprise flexibles"
+        },
+        "programmes": [
+          {
+            "niveau": "1ère année",
+            "modules": [
+              "Algorithmes et Programmation",
+              "Bases de données",
+              "Réseaux informatiques",
+              "Mathématiques pour l'informatique"
+            ]
+          },
+          {
+            "niveau": "2ème année",
+            "modules": [
+              "Programmation Orientée Objet",
+              "Développement Web",
+              "Administration système",
+              "Génie logiciel"
+            ]
+          },
+          {
+            "niveau": "3ème année",
+            "modules": [
+              "Frameworks modernes",
+              "Cloud Computing",
+              "Sécurité informatique",
+              "Projet de fin d'études"
+            ]
+          }
+        ]
+      },
+      "mastere": {
+        "nom": "Développement des Systèmes Informatiques et Réseaux (DSIR)",
+        "type": "Formation à distance",
+        "duree": "2 ans",
+        "modalites": {
+          "cours": "Format hybride (en ligne et présentiel)",
+          "projets": "Projets professionnels appliqués",
+          "encadrement": "Suivi personnalisé"
+        },
+        "programmes": [
+          {
+            "niveau": "1ère année",
+            "modules": [
+              "Architecture des systèmes distribués",
+              "Développement avancé",
+              "Intelligence artificielle",
+              "Gestion de projet IT"
+            ]
+          },
+          {
+            "niveau": "2ème année",
+            "modules": [
+              "DevOps et intégration continue",
+              "Big Data et Analytics",
+              "Sécurité avancée",
+              "Mémoire de fin d'études"
+            ]
+          }
+        ]
+      }
+    },
+    "certifications": {
+      "microsoft": {
+        "nom": "Formation certifiante MICROSOFT",
+        "certifications_disponibles": [
+          {
+            "nom": "Microsoft Certified: Azure Administrator",
+            "duree": "60 heures",
+            "niveau": "Professionnel"
+          },
+          {
+            "nom": "Microsoft Certified: Azure Developer",
+            "duree": "80 heures",
+            "niveau": "Expert"
+          }
+        ]
+      },
+      "autres": {
+        "nom": "Formations techniques spécialisées",
+        "programmes": [
+          {
+            "nom": "Développement Web Full Stack",
+            "duree": "120 heures",
+            "technologies": ["React", "Node.js", "MongoDB"]
+          },
+          {
+            "nom": "Intelligence Artificielle et Machine Learning",
+            "duree": "100 heures",
+            "technologies": ["Python", "TensorFlow", "Scikit-learn"]
+          }
+        ]
+      }
+    },
+    "modalites_inscription": {
+      "periode": "Inscriptions ouvertes de juillet à septembre",
+      "documents_requis": [
+        "Copie CIN",
+        "Diplômes",
+        "CV",
+        "Lettre de motivation"
+      ],
+      "procedure": [
+        "Dépôt du dossier en ligne",
+        "Étude du dossier",
+        "Entretien éventuel",
+        "Confirmation d'inscription"
+      ],
+      "contact": {
+        "email": "formation.continue@isetsf.rnu.tn",
+        "telephone": "(+216) 74 431 425",
+        "horaires": "Du lundi au vendredi: 8h30-16h30"
+      }
+    }
+  },
+  "partenaires_techniques": [
+    {
+      "nom": "DK SOFT",
+      "type": "Entreprise de développement logiciel",
+      "collaboration": "Stages et projets étudiants"
+    },
+    {
+      "nom": "INFOSOFT",
+      "type": "Société de services informatiques",
+      "collaboration": "Formation pratique et recrutement"
+    },
+    {
+      "nom": "CLINISYS",
+      "type": "Solutions médicales",
+      "collaboration": "Projets de fin d'études"
+    },
+    {
+      "nom": "GLOBAL INFORMATIQUE SERVICES",
+      "type": "Services IT",
+      "collaboration": "Formations professionnelles"
+    }
+  ],
+  "contact": {
+    "adresse": "Route de Mahdia Km 2.5 BP 88 A - 3099 Sfax",
+    "tel": "(+216) 74 431 425",
+    "fax": "(+216) 74 431 673",
+    "email": "iset.sfax@sfax.r-iset.tn",
+    "horaires": "Du lundi au vendredi: 8h30-16h30",
+    "social_media": {
+      "facebook": "ISET.Sfax.Officiel",
+      "linkedin": "iset-sfax",
+      "twitter": "ISET_Sfax"
+    },
+    "services": {
+      "scolarite": {
+        "email": "scolarite@isetsf.rnu.tn",
+        "tel": "(+216) 74 431 426"
+      },
+      "stages": {
+        "email": "stages@isetsf.rnu.tn",
+        "tel": "(+216) 74 431 427"
+      },
+      "formation_continue": {
+        "email": "formation.continue@isetsf.rnu.tn",
+        "tel": "(+216) 74 431 428"
+      }
+    }
+  }
+}
