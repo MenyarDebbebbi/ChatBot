@@ -1,0 +1,17 @@
+timestamp,user_message,bot_response
+2025-05-08T23:52:39.383943,Quels sont les programmes disponibles ?,"Voici les formations disponibles à l'ISET Sfax :
+
+1. 📚 Licence Nationale en Technologies de l'Informatique
+   - Type : Formation initiale et à distance
+   - Description : Formation en développement logiciel, réseaux et systèmes informatiques
+
+2. Mastères professionnels :
+   📚 Administration des Systèmes, Sécurité et Cloud Computing (ASSCC)
+   - Type : Mastère Professionnel
+   - Description : Spécialisation en administration système, sécurité informatique et technologies cloud
+
+   📚 Développement des Systèmes Informatiques et Réseaux (DSIR)
+   - Type : Mastère Professionnel
+   - Description : Spécialisation en développement d'applications et gestion des réseaux
+
+"

@@ -1,9 +1,10 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, send_file
 from models.response_generator import ResponseGenerator
 from models.nlp_processor import NLPProcessor
 from config import Config
 import os
 from datetime import datetime
+from models.conversation_history import ConversationHistory
 
 app = Flask(__name__, 
     template_folder='web/templates',
@@ -14,10 +15,12 @@ app.config.from_object(Config)
 
 # Initialisation des composants
 response_generator = ResponseGenerator()
+conversation_history = ConversationHistory()
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    conversations = conversation_history.get_history()
+    return render_template('index.html', conversations=conversations)
 
 @app.route('/chatbot')
 def chatbot():
@@ -26,25 +29,44 @@ def chatbot():
 @app.route('/chat', methods=['POST'])
 def chat():
     try:
-        data = request.get_json()
-        if not data:
-            return jsonify({'response': 'Aucun message reçu'})
-            
-        user_message = data.get('message', '').strip()
-        if not user_message:
-            return jsonify({'response': 'Veuillez entrer un message'})
-
-        # Générer la réponse
+        user_message = request.json.get('message', '')
         response = response_generator.generate_response(user_message)
         
-        # La réponse est déjà formatée correctement, pas besoin de formatage HTML
+        # Sauvegarder la conversation dans l'historique
+        conversation_history.add_conversation(user_message, response)
+        
         return jsonify({'response': response})
-    
     except Exception as e:
         print(f"Erreur lors du traitement de la requête: {str(e)}")
-        return jsonify({
-            'response': 'Désolé, une erreur est survenue lors du traitement de votre demande. Veuillez réessayer.'
-        })
+        return jsonify({'response': "Désolé, une erreur est survenue lors du traitement de votre demande. Veuillez réessayer."})
+
+@app.route('/history')
+def history():
+    conversations = conversation_history.get_history()
+    return render_template('history.html', conversations=conversations)
+
+@app.route('/export_history/<format>')
+def export_history(format):
+    if format not in ['json', 'csv']:
+        return jsonify({'error': 'Format non supporté'}), 400
+    
+    try:
+        file_path = conversation_history.export_history(format)
+        return send_file(
+            file_path,
+            as_attachment=True,
+            download_name=f'conversation_history.{format}'
+        )
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/clear_history', methods=['POST'])
+def clear_history():
+    try:
+        conversation_history.clear_history()
+        return jsonify({'success': True})
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)})
 
 @app.route('/feedback', methods=['POST'])
 def feedback():

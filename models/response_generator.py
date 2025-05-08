@@ -155,6 +155,7 @@ class ResponseGenerator:
 
         # Mots clés pour la recherche
         keywords = {
+            'formation': ['formation', 'formations', 'étudier', 'cursus', 'programme'],
             'formation_continue': ['formation continue', 'formation à distance', 'formation en ligne'],
             'masteres': ['mastere', 'mastères', 'master', 'masters'],
             'licence': ['licence', 'formation initiale'],
@@ -171,8 +172,43 @@ class ResponseGenerator:
                 category = cat
                 break
 
-        # Traitement selon la catégorie
-        if category == 'formation_continue':
+        # Si une catégorie est identifiée, utiliser la réponse structurée
+        if category:
+            response = self._get_structured_response(category, query)
+            if response:
+                return response
+
+        # En dernier recours, chercher dans les données d'entraînement
+        for item in self.training_data:
+            for pattern in item['patterns']:
+                if query in pattern.lower() or pattern.lower() in query:
+                    return item['responses'][0]
+
+        return "Je ne comprends pas votre demande. Pouvez-vous reformuler votre question en précisant si vous souhaitez des informations sur :\n- Les formations (licence, mastère)\n- La formation continue\n- Les certifications\n- Les stages\n- Les partenaires\n- Les contacts"
+
+    def _get_structured_response(self, category: str, query: str) -> Optional[str]:
+        """Génère une réponse structurée basée sur la catégorie"""
+        if category == 'formation':
+            response = "Voici les formations disponibles à l'ISET Sfax :\n\n"
+            
+            # Ajouter les informations sur la licence
+            if 'formations' in self.scraped_data and 'licence' in self.scraped_data['formations']:
+                licence = self.scraped_data['formations']['licence']
+                response += f"1. 📚 {licence['nom']}\n"
+                response += f"   - Type : {licence['type']}\n"
+                response += f"   - Description : {licence['description']}\n\n"
+            
+            # Ajouter les informations sur les mastères
+            if 'formations' in self.scraped_data and 'masteres' in self.scraped_data['formations']:
+                response += "2. Mastères professionnels :\n"
+                for mastere in self.scraped_data['formations']['masteres']:
+                    response += f"   📚 {mastere['nom']}\n"
+                    response += f"   - Type : {mastere['type']}\n"
+                    response += f"   - Description : {mastere['description']}\n\n"
+            
+            return response
+            
+        elif category == 'formation_continue':
             if 'formation_continue' in self.scraped_data:
                 fc = self.scraped_data['formation_continue']
                 response = f"{fc['presentation']}\n\n"
@@ -186,58 +222,69 @@ class ResponseGenerator:
                         for mod_type, mod_desc in details['modalites'].items():
                             response += f"  • {mod_type} : {mod_desc}\n"
                 return response
+        
+        elif category == 'stages':
+            if 'stages' in self.scraped_data:
+                stages = self.scraped_data['stages']
+                response = "Informations sur les stages :\n\n"
+                for stage in stages['types']:
+                    response += f"📌 {stage['nom']}\n"
+                    response += f"- Durée : {stage['duree']}\n"
+                    response += f"- Niveau : {stage['niveau']}\n"
+                    response += f"- Période : {stage['periode']}\n"
+                    response += "- Documents requis :\n"
+                    for doc in stage['documents_requis']:
+                        response += f"  • {doc}\n"
+                    response += "\n"
+                response += "\nProcédure de stage :\n"
+                for etape in stages['procedure']['etapes']:
+                    response += f"- {etape}\n"
+                response += f"\nContact service des stages :\n"
+                response += f"Email : {stages['procedure']['contacts']['service_stages']}\n"
+                response += f"Tél : {stages['procedure']['contacts']['tel']}"
+                return response
 
         elif category == 'masteres':
             if 'formations' in self.scraped_data and 'masteres' in self.scraped_data['formations']:
                 masteres = self.scraped_data['formations']['masteres']
                 response = "Voici les mastères disponibles à l'ISET Sfax :\n\n"
                 for mastere in masteres:
-                    response += f"1. {mastere['nom']}\n"
-                    response += f"   - Type : {mastere['type']}\n"
-                    response += f"   - Durée : {mastere['duree']}\n"
-                    response += f"   - Description : {mastere['description']}\n"
+                    response += f"📚 {mastere['nom']}\n"
+                    response += f"Type : {mastere['type']}\n"
+                    response += f"Durée : {mastere.get('duree', '2 ans')}\n"
+                    response += f"Description : {mastere['description']}\n"
                     if 'objectifs' in mastere:
-                        response += "   - Objectifs :\n"
+                        response += "\nObjectifs :\n"
                         for obj in mastere['objectifs']:
-                            response += f"     • {obj}\n"
+                            response += f"- {obj}\n"
                     if 'debouches' in mastere:
-                        response += "   - Débouchés :\n"
+                        response += "\nDébouchés :\n"
                         for deb in mastere['debouches']:
-                            response += f"     • {deb}\n"
+                            response += f"- {deb}\n"
                     response += "\n"
                 return response
 
         elif category == 'licence':
             if 'formations' in self.scraped_data and 'licence' in self.scraped_data['formations']:
                 licence = self.scraped_data['formations']['licence']
-                response = f"Licence en {licence['nom']} :\n\n"
+                response = f"📚 {licence['nom']}\n\n"
                 response += f"Type : {licence['type']}\n"
                 response += f"Description : {licence['description']}\n"
-                response += f"Durée : {licence['duree']}\n\n"
+                response += f"Durée : {licence.get('duree', '3 ans')}\n\n"
                 if 'specialites' in licence:
                     response += "Spécialités disponibles :\n"
                     for spec in licence['specialites']:
-                        response += f"\n1. {spec['nom']}\n"
-                        response += f"   Description : {spec['description']}\n"
-                        response += "   Débouchés :\n"
+                        response += f"\n🔹 {spec['nom']}\n"
+                        response += f"Description : {spec['description']}\n"
+                        response += "Débouchés :\n"
                         for deb in spec['debouches']:
-                            response += f"   - {deb}\n"
-                return response
-
-        elif category == 'partenaires':
-            if 'partenaires_techniques' in self.scraped_data:
-                partenaires = self.scraped_data['partenaires_techniques']
-                response = "Nos partenaires techniques :\n\n"
-                for partenaire in partenaires:
-                    response += f"• {partenaire['nom']}\n"
-                    response += f"  - Type : {partenaire['type']}\n"
-                    response += f"  - Collaboration : {partenaire['collaboration']}\n\n"
+                            response += f"- {deb}\n"
                 return response
 
         elif category == 'contact':
             if 'contact' in self.scraped_data:
                 contact = self.scraped_data['contact']
-                response = "Coordonnées de l'ISET Sfax :\n\n"
+                response = "📍 Coordonnées de l'ISET Sfax :\n\n"
                 response += f"Adresse : {contact['adresse']}\n"
                 response += f"Téléphone : {contact['tel']}\n"
                 response += f"Fax : {contact['fax']}\n"
@@ -246,135 +293,32 @@ class ResponseGenerator:
                 if 'services' in contact:
                     response += "Services spécifiques :\n"
                     for service_name, service_info in contact['services'].items():
-                        response += f"\n• Service {service_name} :\n"
-                        response += f"  - Email : {service_info['email']}\n"
-                        response += f"  - Tél : {service_info['tel']}\n"
+                        response += f"\n📌 Service {service_name} :\n"
+                        response += f"- Email : {service_info['email']}\n"
+                        response += f"- Tél : {service_info['tel']}\n"
                 return response
 
         elif category == 'certifications':
             if 'formation_continue' in self.scraped_data and 'certifications' in self.scraped_data['formation_continue']:
                 certif = self.scraped_data['formation_continue']['certifications']
-                response = "Certifications disponibles :\n\n"
+                response = "🎓 Certifications disponibles :\n\n"
                 for type_certif, details in certif.items():
-                    response += f"• {details['nom']}\n"
+                    response += f"📌 {details['nom']}\n"
                     if 'certifications_disponibles' in details:
                         for cert in details['certifications_disponibles']:
-                            response += f"  - {cert['nom']}\n"
-                            response += f"    Durée : {cert['duree']}\n"
-                            response += f"    Niveau : {cert['niveau']}\n"
+                            response += f"- {cert['nom']}\n"
+                            response += f"  Durée : {cert['duree']}\n"
+                            response += f"  Niveau : {cert['niveau']}\n"
                     elif 'programmes' in details:
                         for prog in details['programmes']:
-                            response += f"  - {prog['nom']}\n"
-                            response += f"    Durée : {prog['duree']}\n"
+                            response += f"- {prog['nom']}\n"
+                            response += f"  Durée : {prog['duree']}\n"
                             if 'technologies' in prog:
-                                response += f"    Technologies : {', '.join(prog['technologies'])}\n"
+                                response += f"  Technologies : {', '.join(prog['technologies'])}\n"
                     response += "\n"
                 return response
-
-        # Si aucune catégorie spécifique n'est trouvée, rechercher dans toutes les données
-        scraped_info = self._find_scraped_info(query)
-        if any(scraped_info.values()):
-            return self._format_scraped_results(scraped_info)
-
-        # En dernier recours, chercher dans les données d'entraînement
-        for item in self.training_data:
-            for pattern in item['patterns']:
-                if query in pattern.lower() or pattern.lower() in query:
-                    return item['responses'][0]
-
-        return "Je ne comprends pas votre demande. Pouvez-vous reformuler votre question en précisant si vous souhaitez des informations sur :\n- Les formations (licence, mastère)\n- La formation continue\n- Les certifications\n- Les stages\n- Les partenaires\n- Les contacts"
-
-    def _find_scraped_info(self, query: str) -> Dict:
-        """Recherche des informations dans les données scrapées"""
-        query = query.lower()
-        results = {
-            'formations': [],
-            'cours': [],
-            'stages': [],
-            'enseignants': [],
-            'ressources': [],
-            'attestations': [],
-            'formation_continue': [],
-            'partenaires': []
-        }
-
-        # Recherche dans les formations
-        if 'formations' in self.scraped_data:
-            # Recherche dans la licence
-            if 'licence' in self.scraped_data['formations']:
-                licence = self.scraped_data['formations']['licence']
-                if query in str(licence).lower():
-                    results['formations'].append({
-                        'type': 'Licence',
-                        'details': licence
-                    })
-
-            # Recherche dans les mastères
-            if 'masteres' in self.scraped_data['formations']:
-                for mastere in self.scraped_data['formations']['masteres']:
-                    if query in str(mastere).lower():
-                        results['formations'].append({
-                            'type': 'Mastère',
-                            'details': mastere
-                        })
-
-        # Recherche dans la formation continue
-        if 'formation_continue' in self.scraped_data:
-            formation_continue = self.scraped_data['formation_continue']
-            if query in str(formation_continue).lower():
-                results['formation_continue'].append(formation_continue)
-
-        # Recherche dans les partenaires
-        if 'partenaires_techniques' in self.scraped_data:
-            for partenaire in self.scraped_data['partenaires_techniques']:
-                if query in str(partenaire).lower():
-                    results['partenaires'].append(partenaire)
-
-        return results
-
-    def _format_scraped_results(self, results: Dict) -> str:
-        """Formate les résultats des données scrapées"""
-        response_parts = []
-
-        # Formatage des formations
-        if results['formations']:
-            response_parts.append("Formations trouvées :")
-            for formation in results['formations']:
-                details = formation['details']
-                response_parts.append(f"\n{formation['type']} : {details['nom']}")
-                response_parts.append(f"Description : {details['description']}")
-                if 'duree' in details:
-                    response_parts.append(f"Durée : {details['duree']}")
-                if 'objectifs' in details:
-                    response_parts.append("Objectifs :")
-                    for obj in details['objectifs']:
-                        response_parts.append(f"- {obj}")
-                if 'debouches' in details:
-                    response_parts.append("Débouchés :")
-                    for deb in details['debouches']:
-                        response_parts.append(f"- {deb}")
-
-        # Formatage de la formation continue
-        if results['formation_continue']:
-            fc = results['formation_continue'][0]
-            response_parts.append("\nFormation Continue :")
-            response_parts.append(fc['presentation'])
-            if 'types_formation' in fc:
-                response_parts.append("\nTypes de formation disponibles :")
-                for type_name, type_details in fc['types_formation'].items():
-                    response_parts.append(f"\n- {type_details['nom']}")
-                    response_parts.append(f"  Type : {type_details['type']}")
-                    response_parts.append(f"  Durée : {type_details['duree']}")
-
-        # Formatage des partenaires
-        if results['partenaires']:
-            response_parts.append("\nPartenaires techniques :")
-            for partenaire in results['partenaires']:
-                response_parts.append(f"\n- {partenaire['nom']}")
-                response_parts.append(f"  Type : {partenaire['type']}")
-                response_parts.append(f"  Collaboration : {partenaire['collaboration']}")
-
-        return "\n".join(response_parts) if response_parts else "Aucune information trouvée pour votre requête."
+        
+        return None
 
     def load_responses(self):
         """Charge les réponses depuis le fichier responses.json"""

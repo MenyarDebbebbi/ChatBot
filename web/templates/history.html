@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Historique des Conversations - ISET Chatbot</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      .history-container {
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .history-header {
+        margin-bottom: 30px;
+        text-align: center;
+      }
+
+      .history-title {
+        font-size: 28px;
+        color: #1976d2;
+        margin: 0;
+        padding-bottom: 10px;
+        border-bottom: 3px solid #1976d2;
+        display: inline-block;
+      }
+
+      .history-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 30px;
+        background-color: white;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+
+      .history-table th {
+        background-color: #1976d2;
+        color: white;
+        padding: 15px;
+        text-align: left;
+        font-weight: 500;
+      }
+
+      .history-table td {
+        padding: 12px 15px;
+        border-bottom: 1px solid #eee;
+      }
+
+      .history-table tr:hover {
+        background-color: #f5f5f5;
+      }
+
+      .timestamp-cell {
+        color: #666;
+        font-size: 0.9em;
+        white-space: nowrap;
+      }
+
+      .message-cell {
+        max-width: 300px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .no-data {
+        text-align: center;
+        padding: 20px;
+        color: #666;
+        font-style: italic;
+      }
+
+      .history-controls {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid #eee;
+      }
+
+      .btn {
+        padding: 12px 25px;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .btn-export {
+        background-color: #4caf50;
+        color: white;
+        box-shadow: 0 2px 5px rgba(76, 175, 80, 0.3);
+      }
+
+      .btn-export:hover {
+        background-color: #43a047;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(76, 175, 80, 0.4);
+      }
+
+      .btn-clear {
+        background-color: #ff5252;
+        color: white;
+        box-shadow: 0 2px 5px rgba(255, 82, 82, 0.3);
+      }
+
+      .btn-clear:hover {
+        background-color: #ff1744;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(255, 82, 82, 0.4);
+      }
+
+      @media (max-width: 768px) {
+        .history-controls {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 15px;
+        }
+
+        .btn {
+          width: 100%;
+          justify-content: center;
+        }
+
+        .history-table {
+          font-size: 14px;
+        }
+
+        .message-cell {
+          max-width: 200px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    {% include 'components/header.html' %}
+
+    <div class="history-container">
+      <div class="history-header">
+        <h1 class="history-title">Historique des Conversations</h1>
+      </div>
+
+      <table class="history-table">
+        <thead>
+          <tr>
+            <th>Date et Heure</th>
+            <th>Message Utilisateur</th>
+            <th>Réponse Chatbot</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% if conversations %} {% for conversation in conversations %}
+          <tr>
+            <td class="timestamp-cell">{{ conversation.timestamp }}</td>
+            <td class="message-cell">{{ conversation.user_message }}</td>
+            <td class="message-cell">{{ conversation.bot_response }}</td>
+          </tr>
+          {% endfor %} {% else %}
+          <tr>
+            <td colspan="3" class="no-data">Aucune conversation enregistrée</td>
+          </tr>
+          {% endif %}
+        </tbody>
+      </table>
+
+      <div class="history-controls">
+        <button class="btn btn-clear" onclick="clearHistory()">
+          <i class="fas fa-trash"></i> Effacer l'historique
+        </button>
+      </div>
+    </div>
+
+    {% include 'components/footer.html' %}
+
+    <script>
+      function exportHistory(format) {
+        window.location.href = `/export_history/${format}`;
+      }
+
+      function clearHistory() {
+        if (confirm("Êtes-vous sûr de vouloir effacer tout l'historique ?")) {
+          fetch("/clear_history", {
+            method: "POST",
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.success) {
+                location.reload();
+              } else {
+                alert("Erreur lors de la suppression de l'historique");
+              }
+            });
+        }
+      }
+
+      // Formater les dates
+      document.addEventListener("DOMContentLoaded", function () {
+        const timestamps = document.querySelectorAll(".timestamp-cell");
+        timestamps.forEach((cell) => {
+          const date = new Date(cell.textContent);
+          cell.textContent = date.toLocaleString("fr-FR");
+        });
+      });
+    </script>
+  </body>
+</html>
